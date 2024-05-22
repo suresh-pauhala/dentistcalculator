@@ -245,16 +245,23 @@ function showNextSlide() {
   slides[currentSlideIndex].style.display = "block";
 
   // Check if this is the last slide
-  if (currentSlideIndex === slides.length - 1) {
+  if (currentSlideIndex === slides.length - 2) {
     // Hide the Next button
     document.querySelector(".next-button").style.display = "none";
+    document.querySelector(".prev-button").style.display = "none";
     // Show the Submit button
     document.querySelector(".submit-button").style.display = "block";
   } else {
     // Show the Next button
     document.querySelector(".next-button").style.display = "block";
+    document.querySelector(".prev-button").style.display = "block";
     // Hide the Submit button
     document.querySelector(".submit-button").style.display = "none";
+  }
+  if (currentSlideIndex === slides.length - 1) {
+    // Hide the Next button
+    document.querySelector(".next-button").style.display = "none";
+    document.querySelector(".prev-button").style.display = "none";
   }
   storeSelectedButtonState();
 
@@ -307,6 +314,9 @@ document.querySelector(".prev-button").addEventListener("click", showPrevSlide);
 
 // Function to handle form submission
 function submitForm() {
+  // go to next slide
+  showNextSlide();
+
   // Construct CSV content from selected values
   const csvContent = selectedValues.join(",") + "\n";
 
