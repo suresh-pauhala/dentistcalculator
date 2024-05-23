@@ -24,7 +24,28 @@ const basePrices = {
 };
 
 const optimalPremiumPrices = {
-  base: basePrices,
+  basic: {
+    experienced: {
+      1: 1060, // One tooth missing
+      2: 2120, // Two teeth missing
+      3: 2500, // Three teeth missing
+      4: 2800, // Four teeth missing
+      5: 3100, // Five and more teeth missing 
+      6: 4500, // "lower arch teeth missing"
+      7: 4500, // "upper arch teeth missing"
+      8: 9000 // "both arch teeth missing"
+    },
+    inexperienced: {
+        1: 980,
+        2: 1960,
+        3: 2260,
+        4: 2560,
+        5: 2860,
+        6: 3597,
+        7: 3597,
+        8: 7294
+    }
+  },
   optimal: {
     experienced: {
       1: basePrices.base.experienced[1] + 120,
@@ -83,7 +104,7 @@ const optimalPremiumPrices = {
 };
 const slides = document.querySelectorAll(".slide");
 
-let selectedValues = new Array(slides.length).fill("");
+let selectedValues = {};
 
 const optionButtons = document.querySelectorAll(".options button");
 optionButtons.forEach((button) => {
@@ -121,8 +142,25 @@ function selectTeeth(button) {
     selectImg.style.display = "block";
 
     // Store the value of the selected option for the current slide
-    selectedValues[currentSlideIndex] = button.dataset.value;
-
+    switch (currentSlideIndex) {
+      case 0:
+        selectedValues['missingTeeth'] = button.dataset.value;
+        break;
+      case 1:
+        selectedValues['teethPosition'] = button.dataset.value;
+        break;
+      case 2:
+        selectedValues['totalTeethRemove'] = button.dataset.value;
+        break;
+      case 3:
+        selectedValues['experienceLevel'] = button.dataset.value;
+        break;
+      case 4:
+        selectedValues['systemLevel'] = button.dataset.value;
+        break;
+      default:
+        break;
+    }
     // Output selected values (for testing)
     console.log("Selected values:", selectedValues);
 
@@ -233,6 +271,15 @@ function showNextSlide() {
     progressBar.style.display = "none";
   }
 
+  if(currentSlideIndex === 4) {
+    const doctorFees = optimalPremiumPrices[selectedValues.systemLevel][selectedValues.experienceLevel][selectedValues.missingTeeth];
+    const teethPositionPrice = optimalPremiumPrices.teethPosition[selectedValues.teethPosition];
+    const teethExtractionPrice = optimalPremiumPrices.teethExtraction[selectedValues.totalTeethRemove];
+    const finalPrice =  parseInt(doctorFees) + parseInt(teethPositionPrice) + parseInt(teethExtractionPrice);
+    document.getElementById('teethExtraction').innerHTML = "Additional tooth extraction: + €" + teethExtractionPrice;
+    document.getElementById('totalPrice').innerHTML = "Doctor's experience: + €" + finalPrice;
+  }
+
   // Increment the slide index
   currentSlideIndex++;
 
@@ -245,16 +292,23 @@ function showNextSlide() {
   slides[currentSlideIndex].style.display = "block";
 
   // Check if this is the last slide
-  if (currentSlideIndex === slides.length - 1) {
+  if (currentSlideIndex === slides.length - 2) {
     // Hide the Next button
     document.querySelector(".next-button").style.display = "none";
+    document.querySelector(".prev-button").style.display = "none";
     // Show the Submit button
     document.querySelector(".submit-button").style.display = "block";
   } else {
     // Show the Next button
     document.querySelector(".next-button").style.display = "block";
+    document.querySelector(".prev-button").style.display = "block";
     // Hide the Submit button
     document.querySelector(".submit-button").style.display = "none";
+  }
+  if (currentSlideIndex === slides.length - 1) {
+    // Hide the Next button
+    document.querySelector(".next-button").style.display = "none";
+    document.querySelector(".prev-button").style.display = "none";
   }
   storeSelectedButtonState();
 
@@ -307,6 +361,9 @@ document.querySelector(".prev-button").addEventListener("click", showPrevSlide);
 
 // Function to handle form submission
 function submitForm() {
+  // go to next slide
+  showNextSlide();
+
   // Construct CSV content from selected values
   const csvContent = selectedValues.join(",") + "\n";
 
