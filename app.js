@@ -24,7 +24,28 @@ const basePrices = {
 };
 
 const optimalPremiumPrices = {
-    base: basePrices,
+    basic: {
+        experienced: {
+            1: 1060, // One tooth missing
+            2: 2120, // Two teeth missing
+            3: 2500, // Three teeth missing
+            4: 2800, // Four teeth missing
+            5: 3100, // Five and more teeth missing 
+            6: 4500, // "lower arch teeth missing"
+            7: 4500, // "upper arch teeth missing"
+            8: 9000 // "both arch teeth missing"
+        },
+        inexperienced: {
+            1: 980,
+            2: 1960,
+            3: 2260,
+            4: 2560,
+            5: 2860,
+            6: 3597,
+            7: 3597,
+            8: 7294
+        }
+    },
     optimal: {
         experienced: {
             1: basePrices.experienced[1] + 120,

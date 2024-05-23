@@ -75,7 +75,7 @@
               <p class="optionText">3 teeth</p>
               <img src="../Images/Vector 1.png" class="selectImg" />
             </button>
-            <button onclick="selectTeeth(this)" data-value="4 Teeth">
+            <button onclick="selectTeeth(this)" data-value="4">
               <img
                 src="../Images/3 Trūksta trijų dantų.png"
                 alt=""
@@ -98,7 +98,7 @@
               <p class="optionText">5 Teeth</p>
               <img src="../Images/Vector 1.png" class="selectImg" />
             </button>
-            <button onclick="selectTeeth(this)" data-value="Above all">
+            <button onclick="selectTeeth(this)" data-value="6">
               <img
                 src="../Images/6 Trūksta visų dantų viršutiniame žandikaulyje.png"
                 alt=""
@@ -110,7 +110,7 @@
             </button>
             <button
               onclick="selectTeeth(this)"
-              data-value="At the bottom of all"
+              data-value="7"
             >
               <img
                 src="../Images/7 Trūksta visų dantų apatiniame žandikaulyje.png"
@@ -123,7 +123,7 @@
               <img src="../Images/Vector 1.png" class="selectImg" />
             </button>
 
-            <button onclick="selectTeeth(this)" data-value="All mouths">
+            <button onclick="selectTeeth(this)" data-value="8">
               <img
                 src="../Images/7 Trūksta visų dantų apatiniame žandikaulyje.png"
                 alt=""
@@ -144,7 +144,7 @@
 
         <div class="options">
           <div class="left-options">
-            <button onclick="selectTeeth(this)" data-value="Front of mouth">
+            <button onclick="selectTeeth(this)" data-value="front">
               <img
                 src="../Images/9 Trūksta dantų priekyje.png"
                 alt="xyz"
@@ -156,7 +156,7 @@
             </button>
             <button
               onclick="selectTeeth(this)"
-              data-value="At the back of the mouth"
+              data-value="rear"
             >
               <img
                 src="../Images/10 Trūksta dantų gale.png"
@@ -175,7 +175,7 @@
         <h2>Do some teeth need to be removed?</h2>
         <div class="options">
           <div class="left-options">
-            <button onclick="selectTeeth(this)" data-value="Remove 1 tooth">
+            <button onclick="selectTeeth(this)" data-value="option1">
               <img
                 src="../Images/11  Reikia šalinti vieną dantį.png"
                 alt="xyz"
@@ -185,7 +185,7 @@
               <p class="optionText">Remove 1 tooth</p>
               <img src="../Images/Vector 1.png" class="selectImg" />
             </button>
-            <button onclick="selectTeeth(this)" data-value="Remove 2 teeth">
+            <button onclick="selectTeeth(this)" data-value="option2">
               <img
                 src="../Images/12 Reikia šalinti du dantis.png"
                 alt=""
@@ -195,7 +195,7 @@
               <p class="optionText">Remove 2 teeth</p>
               <img src="../Images/Vector 1.png" class="selectImg" />
             </button>
-            <button onclick="selectTeeth(this)" data-value="Remove 3 teeth">
+            <button onclick="selectTeeth(this)" data-value="option3">
               <img
                 src="../Images/13 Reikia šalinti tris dantis.png"
                 alt=""
@@ -205,7 +205,7 @@
               <p class="optionText">Remove 3 teeth</p>
               <img src="../Images/Vector 1.png" class="selectImg" />
             </button>
-            <button onclick="selectTeeth(this)" data-value="Remove 4+ teeth">
+            <button onclick="selectTeeth(this)" data-value="option4">
               <img
                 src="../Images/14 Reikia šalinti keturis ir daugiau.png"
                 alt=""
@@ -217,7 +217,7 @@
             </button>
           </div>
           <div class="right-options">
-            <button onclick="selectTeeth(this)" data-value="I'm not sure">
+            <button onclick="selectTeeth(this)" data-value="option5">
               <img
                 src="../Images/15 Nesu tikras.png"
                 alt=""
@@ -235,7 +235,7 @@
         <h2>Choose your doctor's experience:</h2>
         <div class="options">
           <div class="left-options">
-            <button onclick="selectTeeth(this)" data-value="Over 20 years">
+            <button onclick="selectTeeth(this)" data-value="experienced">
               <img
                 src="../Images/9 Trūksta dantų priekyje.png"
                 alt="xyz"
@@ -246,7 +246,7 @@
               <img src="../Images/Vector 1.png" class="selectImg" />
             </button>
 
-            <button onclick="selectTeeth(this)" data-value="Over 5 years">
+            <button onclick="selectTeeth(this)" data-value="inexperienced">
               <img
                 src="../Images/10 Trūksta dantų gale.png"
                 alt=""
@@ -264,7 +264,7 @@
         <h2>Select the implant system level:</h2>
         <div class="options">
           <div class="left-options">
-            <button onclick="selectTeeth(this)" data-value="Basic">
+            <button onclick="selectTeeth(this)" data-value="basic">
               <img
                 src="../Images/9 Trūksta dantų priekyje.png"
                 alt="xyz"
@@ -274,7 +274,7 @@
               <p class="optionText">Basic</p>
               <img src="../Images/Vector 1.png" class="selectImg" />
             </button>
-            <button onclick="selectTeeth(this)" data-value="Optimal">
+            <button onclick="selectTeeth(this)" data-value="optimal">
               <img
                 src="../Images/10 Trūksta dantų gale.png"
                 alt=""
@@ -284,7 +284,7 @@
               <p class="optionText">Optimal</p>
               <img src="../Images/Vector 1.png" class="selectImg" />
             </button>
-            <button onclick="selectTeeth(this)" data-value="Premium">
+            <button onclick="selectTeeth(this)" data-value="premium">
               <img
                 src="../Images/10 Trūksta dantų gale.png"
                 alt=""
@@ -317,8 +317,8 @@
             <p style="">PRICE CALCULATOR RESULT:</p>
             <p>Implants and prosthetics: € XXX</p>
             <p>Complexity: + € XXX</p>
-            <p>Additional tooth extraction: + € XXX</p>
-            <p>Doctor's experience: + € XXX</p>
+            <p id="teethExtraction"></p>
+            <p id="totalPrice"></p>
           </div>
           <div class="right-options">
             <img
@@ -345,7 +345,6 @@
           <input type="text" class="inputStyle" placeholder="PASIRINKTI FAILĄ (iki 5 MB.)"/>
         </div>
       </div>
-      
       <!-- Last -->
       <div class="slide contact-slide">
         <p class="level-heading">AČIŪ, Jūsų žinutė išsiųsta!</p>
