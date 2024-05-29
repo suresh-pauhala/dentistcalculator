@@ -30,21 +30,21 @@ const optimalPremiumPrices = {
       2: 2120, // Two teeth missing
       3: 2500, // Three teeth missing
       4: 2800, // Four teeth missing
-      5: 3100, // Five and more teeth missing 
+      5: 3100, // Five and more teeth missing
       6: 4500, // "lower arch teeth missing"
       7: 4500, // "upper arch teeth missing"
-      8: 9000 // "both arch teeth missing"
+      8: 9000, // "both arch teeth missing"
     },
     inexperienced: {
-        1: 980,
-        2: 1960,
-        3: 2260,
-        4: 2560,
-        5: 2860,
-        6: 3597,
-        7: 3597,
-        8: 7294
-    }
+      1: 980,
+      2: 1960,
+      3: 2260,
+      4: 2560,
+      5: 2860,
+      6: 3597,
+      7: 3597,
+      8: 7294,
+    },
   },
   optimal: {
     experienced: {
@@ -144,19 +144,19 @@ function selectTeeth(button) {
     // Store the value of the selected option for the current slide
     switch (currentSlideIndex) {
       case 0:
-        selectedValues['missingTeeth'] = button.dataset.value;
+        selectedValues["missingTeeth"] = button.dataset.value;
         break;
       case 1:
-        selectedValues['teethPosition'] = button.dataset.value;
+        selectedValues["teethPosition"] = button.dataset.value;
         break;
       case 2:
-        selectedValues['totalTeethRemove'] = button.dataset.value;
+        selectedValues["totalTeethRemove"] = button.dataset.value;
         break;
       case 3:
-        selectedValues['experienceLevel'] = button.dataset.value;
+        selectedValues["experienceLevel"] = button.dataset.value;
         break;
       case 4:
-        selectedValues['systemLevel'] = button.dataset.value;
+        selectedValues["systemLevel"] = button.dataset.value;
         break;
       default:
         break;
@@ -261,6 +261,7 @@ function showNextSlide() {
   const prevButton = document.querySelector(".prev-button");
   prevButton.style.display = "block";
   slides[currentSlideIndex].style.display = "none";
+  prevButton.disabled = true;
   // console.log(currentSlideIndex);
 
   if (currentSlideIndex === 4 || currentSlideIndex === 5) {
@@ -271,13 +272,26 @@ function showNextSlide() {
     progressBar.style.display = "none";
   }
 
-  if(currentSlideIndex === 4) {
-    const doctorFees = optimalPremiumPrices[selectedValues.systemLevel][selectedValues.experienceLevel][selectedValues.missingTeeth];
-    const teethPositionPrice = optimalPremiumPrices.teethPosition[selectedValues.teethPosition];
-    const teethExtractionPrice = optimalPremiumPrices.teethExtraction[selectedValues.totalTeethRemove];
-    const finalPrice =  parseInt(doctorFees) + parseInt(teethPositionPrice) + parseInt(teethExtractionPrice);
-    document.getElementById('teethExtraction').innerHTML = "Additional tooth extraction: + €" + teethExtractionPrice;
-    document.getElementById('totalPrice').innerHTML = "Doctor's experience: + €" + finalPrice;
+  if (currentSlideIndex === 4) {
+    const doctorFees =
+      optimalPremiumPrices[selectedValues.systemLevel][
+        selectedValues.experienceLevel
+      ][selectedValues.missingTeeth];
+    const teethPositionPrice =
+      optimalPremiumPrices.teethPosition[selectedValues.teethPosition];
+    const teethExtractionPrice =
+      optimalPremiumPrices.teethExtraction[selectedValues.totalTeethRemove];
+    const finalPrice =
+      parseInt(doctorFees) +
+      parseInt(teethPositionPrice) +
+      parseInt(teethExtractionPrice);
+
+    document.getElementById("firstSlide").innerHTML =
+      "Implants and prosthetics: €" + doctorFees;
+    document.getElementById("teethExtraction").innerHTML =
+      "Additional tooth extraction: + €" + teethExtractionPrice;
+    document.getElementById("totalPrice").innerHTML =
+      "Doctor's experience: + €" + finalPrice;
   }
 
   // Increment the slide index
@@ -294,8 +308,10 @@ function showNextSlide() {
   // Check if this is the last slide
   if (currentSlideIndex === slides.length - 2) {
     // Hide the Next button
-    document.querySelector(".next-button").style.display = "none";
+    document.querySelector(".next-button").style.visibility = "hidden";
     document.querySelector(".prev-button").style.display = "none";
+    // document.querySelector(".buttton-style").style.width = "50%";
+
     // Show the Submit button
     document.querySelector(".submit-button").style.display = "block";
   } else {
@@ -362,7 +378,46 @@ document.querySelector(".prev-button").addEventListener("click", showPrevSlide);
 // Function to handle form submission
 function submitForm() {
   // go to next slide
-  showNextSlide();
+
+  event.preventDefault();
+
+  // Get the input elements
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const errorMsg = document.getElementById("errorMsg");
+
+  // Clear previous error messages
+  nameInput.classList.remove("error");
+  emailInput.classList.remove("error");
+
+  // Validate the inputs
+  let isValid = true;
+
+  if (nameInput.value.trim() === "") {
+    nameInput.classList.add("error");
+    isValid = false;
+  }
+
+  if (!validateEmail(emailInput.value)) {
+    emailInput.classList.add("error");
+    isValid = false;
+  }
+
+  // If all inputs are valid, proceed with form submission or further processing
+  if (isValid) {
+    showNextSlide();
+    // You can add your form submission logic here
+  } else {
+    nameInput.placeholder = "This field is required";
+    emailInput.placeholder = "Not a valid email";
+    errorMsg.textContent = "Errors have been detected in the form";
+  }
+
+  // Email validation function
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
 
   // Construct CSV content from selected values
   const csvContent = selectedValues.join(",") + "\n";
@@ -381,10 +436,10 @@ function submitForm() {
   document.body.appendChild(link);
 
   // Trigger a click event on the link to start the download
-  // link.click();
+  link.click();
 
   // // Remove the link from the body
-  // document.body.removeChild(link);
+  document.body.removeChild(link);
 
   console.log("Data saved to data.csv");
 }

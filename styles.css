@@ -15,7 +15,7 @@ body {
   margin: 0 auto;
   overflow: hidden;
   width: 100%;
-  max-width: 418px;
+  max-width: 620px;
 }
 
 .slide {
@@ -78,12 +78,20 @@ button:hover {
   cursor: pointer;
   border-radius: 5px;
   width: 100%;
-  max-width: 125px;
+  max-width: 185px;
   justify-content: center;
-  height: 50px;
-  margin-left: 6%;
-  margin-right: 6%;
+  height: 55px;
+  margin-left: 1%;
+  margin-right: 1%;
   border-radius: 100px;
+  font-size: large;
+}
+
+.prev-button {
+  border: 3px solid #34c99d;
+  background-color: #ffffff;
+  color: #34c99d;
+  font-size: large;
 }
 
 .prev-button:hover,
@@ -101,14 +109,15 @@ button:hover {
 .options {
   display: flex;
   /* justify-content: space-between; Distribute items evenly */
-  max-width: 418px;
+  max-width: 620px;
   margin: auto;
   gap: 28px;
+  height: 500px;
 
   /* border: 1px solid black;
   border-radius: 20px; */
 }
-@media (max-width: 418px) {
+@media (max-width: 620px) {
   .options {
     width: 100%;
   }
@@ -147,16 +156,16 @@ button:hover {
 
 .failas-label {
   font-size: 12px;
-  color: #B9B9B9;
+  color: #b9b9b9;
   text-align: left;
 }
-.failas-input .inputStyle{
+.failas-input .inputStyle {
   display: flex;
-  width: 42%;
+  width: 85%;
   padding: 0 10px;
 }
 
-@media (max-width: 418px) {
+@media (max-width: 620px) {
   .final-form {
     flex-wrap: wrap;
     text-align: center;
@@ -180,13 +189,16 @@ button:hover {
 .step {
   width: 30px;
   height: 30px;
-  background-color: #ddd;
+  /* outline-style: solid; */
+  /* outline-color: #10bd69; */
+  border: 1px solid #10bd69;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  color: #333;
+  color: #1e1c83;
+  font-weight: 500;
 }
 
 .active {
@@ -201,19 +213,19 @@ button:hover {
 }
 
 .line1.active {
-  background-color: #1e1c83; /* Color for the filled line */
+  background-color: #34c99d; /* Color for the filled line */
 }
 .line2.active {
-  background-color: #1e1c83; /* Color for the filled line */
+  background-color: #34c99d; /* Color for the filled line */
 }
 .line3.active {
-  background-color: #1e1c83; /* Color for the filled line */
+  background-color: #34c99d; /* Color for the filled line */
 }
 .line4.active {
-  background-color: #1e1c83; /* Color for the filled line */
+  background-color: #34c99d; /* Color for the filled line */
 }
 .line5.active {
-  background-color: #1e1c83; /* Color for the filled line */
+  background-color: #34c99d; /* Color for the filled line */
 }
 /* Add more classes for additional lines if needed */
 
@@ -226,10 +238,10 @@ button:hover {
   cursor: pointer;
   border-radius: 5px;
   width: 100%;
-  max-width: 125px;
-  height: 50px;
-  margin-left: 6%;
-  margin-right: 6%;
+  max-width: 185px;
+  height: 55px;
+  margin-left: 1%;
+  margin-right: 1%;
   border-radius: 100px;
 }
 
@@ -247,7 +259,7 @@ button:hover {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: 418px;
+  max-width: 620px;
 }
 
 .selectImg {
@@ -286,7 +298,7 @@ button.disabled {
 
 .level-heading {
   font-size: 16px;
-  color: #1E1C83;
+  color: #1e1c83;
   font-weight: 700;
 }
 
@@ -297,7 +309,7 @@ button.disabled {
 }
 
 .contact-slide {
-  display: none; 
+  display: none;
   text-align: left;
   font-size: 16px;
   color: #808080;
@@ -306,13 +318,13 @@ button.disabled {
 
 .contact-slide a {
   font-weight: 600;
-  color: #1E1C83;
+  color: #1e1c83;
 }
 
 .contact-slide .contact {
   font-weight: 500;
-  color: #1E1C83;
-} 
+  color: #1e1c83;
+}
 .contact-slide .main-logo {
   display: flex;
   margin-top: 50%;
@@ -322,6 +334,35 @@ button.disabled {
 
 .contact-slide .main-logo img {
   width: 100%;
-  min-width: 180px;
-  max-width: 180px;
+  min-width: 185px;
+  max-width: 185px;
+}
+.inputStyle.error {
+  border: 1px solid red;
+}
+
+/* Center and style the error message */
+#errorMsg {
+  color: red;
+  text-align: center;
+  margin: 5% auto 0;
+  width: 80%; /* Adjust width for responsiveness */
+  max-width: 620px; /* Limit maximum width */
+  padding: 10px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  #errorMsg {
+    font-size: 14px; /* Smaller font size for mobile */
+    width: 90%; /* Adjust width for mobile screens */
+  }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+  #errorMsg {
+    font-size: 12px; /* Even smaller font size for very small screens */
+    width: 95%; /* Adjust width for very small screens */
+  }
 }

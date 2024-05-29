@@ -13,6 +13,16 @@
 
     <title>Dentist's Patient Calculator</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <script>
+      function onSubmit(token) {
+        document.getElementById("demo-form").submit();
+      }
+    </script>
   </head>
   <body>
     <div id="carousel">
@@ -26,19 +36,19 @@
 
       <hr class="divider" />
       <div class="progress-bar">
-        <div class="step active">1</div>
+        <div class="step active">1.</div>
         <div class="line line1"></div>
-        <div class="step">2</div>
+        <div class="step">2.</div>
         <div class="line line2"></div>
-        <div class="step">3</div>
+        <div class="step">3.</div>
         <div class="line line3"></div>
-        <div class="step">4</div>
+        <div class="step">4.</div>
         <div class="line line4"></div>
-        <div class="step">5</div>
+        <div class="step">5.</div>
         <!-- Add more steps as needed -->
       </div>
       <div class="slide" style="display: block">
-        <p style="margin-right: 10%; color: #808080; font-size: 24px">
+        <p style=" text-align:left; color: #808080; font-size: 24px">
           How many teeth are you missing in a row?
         </p>
 
@@ -135,12 +145,14 @@
             </button>
           </div>
         </div>
+        
       </div>
 
       <!-- Other slides will go here -->
       <div class="slide" style="display: none">
         <!-- Second Slide Content -->
-        <h2>Where are the missing teeth?</h2>
+                <p style=" text-align:left; color: #808080; font-size: 24px">
+Where are the missing teeth?</p>
 
         <div class="options">
           <div class="left-options">
@@ -172,7 +184,8 @@
       </div>
       <div class="slide" style="display: none">
         <!-- Second Slide Content -->
-        <h2>Do some teeth need to be removed?</h2>
+                <p style=" text-align:left; color: #808080; font-size: 24px">
+Do some teeth need to be removed?</p>
         <div class="options">
           <div class="left-options">
             <button onclick="selectTeeth(this)" data-value="option1">
@@ -232,7 +245,8 @@
       </div>
       <div class="slide" style="display: none">
         <!-- Second Slide Content -->
-        <h2>Choose your doctor's experience:</h2>
+                <p style=" text-align:left; color: #808080; font-size: 24px">
+Choose your doctor's experience:</p>
         <div class="options">
           <div class="left-options">
             <button onclick="selectTeeth(this)" data-value="experienced">
@@ -261,7 +275,8 @@
       </div>
       <div class="slide" style="display: none">
         <!-- Second Slide Content -->
-        <h2>Select the implant system level:</h2>
+                <p style=" text-align:left; color: #808080; font-size: 24px">
+Select the implant system level:</p>
         <div class="options">
           <div class="left-options">
             <button onclick="selectTeeth(this)" data-value="basic">
@@ -315,16 +330,17 @@
             <p class="level-heading">Select the implant system level:</p>
 
             <p style="">PRICE CALCULATOR RESULT:</p>
-            <p>Implants and prosthetics: € XXX</p>
+            <p id="firstSlide"></p>
             <p>Complexity: + € XXX</p>
             <p id="teethExtraction"></p>
             <p id="totalPrice"></p>
+            <b style="font-size: large; color: #1E1C83; margin-top:3%">VISO:€ XXX</b>
           </div>
           <div class="right-options">
-            <img
+            <!-- <img
               src="../Images/image 1.png"
               style="width: 100%;"
-            />
+            /> -->
           </div>
         </div>
         <p class="level-heading">
@@ -332,17 +348,22 @@
         </p>
         <div class="final-form">
           <div class="left-inputs">
-            <input type="text" class="inputStyle" placeholder="vardas" />
+            <input type="text" class="inputStyle" placeholder="vardas" id="name"/>
             <input type="text" class="inputStyle" placeholder="+370"/>
-            <input type="text" class="inputStyle" placeholder="El. paštas"/>
+            <input type="email" class="inputStyle" placeholder="El. paštas"  id="email"/>
           </div>
           <div class="right-inputs">
             <input type="text" class="inputStyleBig" placeholder="Jūsų žinutė"></textarea>
           </div>
         </div>
         <p class="failas-label">Failas (rentgeno nuotrauka ir pan.) * - NEBŪTINA, bet rekomenduojama</p>
-        <div class="failas-input">
+        <div class="failas-input left-options">
           <input type="text" class="inputStyle" placeholder="PASIRINKTI FAILĄ (iki 5 MB.)"/>
+
+        </div>
+        <div class="right-inputs">
+          <p class="g-recaptcha" data-sitekey="6LeR3OcpAAAAAFgTFMayhss45pVz5Qxp04MB-Nqs">Submit</p>
+
         </div>
       </div>
       <!-- Last -->
@@ -358,10 +379,10 @@
       </div>
     </div>
     <div class="navigation-container">
-      <button class="prev-button button-style" style="display: none">
+      <button class="prev-button" style="display: none">
         Previous
       </button>
-      <button class="next-button" disabled>Next</button>
+      <button class="next-button" style="background-color: #fff;color:#E4E4E4;border: 2px solid #F4F4F4;" disabled>Next</button>
       <button
         onclick="submitForm()"
         class="submit-button button-style"
@@ -370,6 +391,8 @@
         Submit
       </button>
     </div>
+    <p id="errorMsg" ></p>
+
     <script src="script.js"></script>
   </body>
 </html>
