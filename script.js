@@ -114,6 +114,7 @@ optionButtons.forEach((button) => {
 });
 
 function selectTeeth(button) {
+  handleProgressBar();
   // Get the index of the current slide
   const currentSlideIndex = getCurrentSlideIndex();
 
@@ -173,53 +174,53 @@ function selectTeeth(button) {
   }
 }
 
-function showNextSlide() {
-  // Check if an option is selected on the current slide
-  const currentSlideButtons =
-    slides[currentSlideIndex].querySelectorAll("button");
-  let optionSelected = false;
-  currentSlideButtons.forEach((button) => {
-    if (button.classList.contains("selected")) {
-      optionSelected = true;
-    }
-  });
+// function showNextSlide() {
+//   // Check if an option is selected on the current slide
+//   const currentSlideButtons =
+//     slides[currentSlideIndex].querySelectorAll("button");
+//   let optionSelected = false;
+//   currentSlideButtons.forEach((button) => {
+//     if (button.classList.contains("selected")) {
+//       optionSelected = true;
+//     }
+//   });
 
-  // If an option is not selected, prevent proceeding to the next slide
-  if (!optionSelected) {
-    alert("Please select an option before proceeding.");
-    return;
-  }
+//   // If an option is not selected, prevent proceeding to the next slide
+//   if (!optionSelected) {
+//     alert("Please select an option before proceeding.");
+//     return;
+//   }
 
-  // Hide the current slide
-  slides[currentSlideIndex].style.display = "none";
+//   // Hide the current slide
+//   slides[currentSlideIndex].style.display = "none";
 
-  // Increment the slide index
-  currentSlideIndex++;
+//   // Increment the slide index
+//   currentSlideIndex++;
 
-  // Check if the index is out of bounds
-  if (currentSlideIndex >= slides.length) {
-    currentSlideIndex = 0; // Reset to the first slide
-  }
+//   // Check if the index is out of bounds
+//   if (currentSlideIndex >= slides.length) {
+//     currentSlideIndex = 0; // Reset to the first slide
+//   }
 
-  // Show the next slide
-  slides[currentSlideIndex].style.display = "block";
+//   // Show the next slide
+//   slides[currentSlideIndex].style.display = "block";
 
-  // Check if this is the last slide
-  if (currentSlideIndex === slides.length - 1) {
-    // Hide the Next button
-    document.querySelector(".next-button").style.display = "none";
-    // Show the Submit button
-    document.querySelector(".submit-button").style.display = "block";
-  } else {
-    // Show the Next button
-    document.querySelector(".next-button").style.display = "block";
-    // Hide the Submit button
-    document.querySelector(".submit-button").style.display = "none";
-  }
+//   // Check if this is the last slide
+//   if (currentSlideIndex === slides.length - 1) {
+//     // Hide the Next button
+//     document.querySelector(".next-button").style.display = "none";
+//     // Show the Submit button
+//     document.querySelector(".submit-button").style.display = "block";
+//   } else {
+//     // Show the Next button
+//     document.querySelector(".next-button").style.display = "block";
+//     // Hide the Submit button
+//     document.querySelector(".submit-button").style.display = "none";
+//   }
 
-  storeSelectedButtonState();
-  updateProgressBar();
-}
+//   storeSelectedButtonState();
+//   updateProgressBar();
+// }
 
 // Function to get the index of the current slide
 function getCurrentSlideIndex() {
@@ -240,19 +241,69 @@ let currentSlideIndex = 0;
 // Function to update the active step and lines based on the current slide
 function updateProgressBar() {
   const steps = document.querySelectorAll(".step");
-  const lines = document.querySelectorAll(".line");
+  // const lines = document.querySelectorAll(".line");
+  console.log("index=>", currentSlideIndex);
+  switch (currentSlideIndex) {
+    case 1:
+      document.querySelector(".line1").style.display = "block";
+      document.querySelector(".line1").classList.add('active');
+      document.querySelector(".half-line1").style.display = "none";
+      break;
+    case 2:
+      document.querySelector(".line2").style.display = "block";
+      document.querySelector(".line2").classList.add('active');
+      document.querySelector(".half-line2").style.display = "none";
+      break;
+    case 3:
+      document.querySelector(".line3").style.display = "block";
+      document.querySelector(".line3").classList.add('active');
+      document.querySelector(".half-line3").style.display = "none";
+      break;
+    case 4:
+      document.querySelector(".line4").style.display = "block";
+      document.querySelector(".line4").classList.add('active');
+      document.querySelector(".half-line4").style.display = "none";
+      break;
+    default:
+      break;
+  }
   steps.forEach((step, index) => {
     if (index <= currentSlideIndex) {
       step.classList.add("active");
     } else {
       step.classList.remove("active");
     }
-    if (index < currentSlideIndex) {
-      lines[index].classList.add("active");
-    } else {
-      // lines[index].classList.remove("active");
-    }
+    // if (index < currentSlideIndex) {
+    //   lines[index].classList.add("active");
+    // } else {
+    //   // lines[index].classList.remove("active");
+    // }
   });
+}
+
+function handleProgressBar() {
+  console.log("current=>", currentSlideIndex);
+  switch (currentSlideIndex) {
+    case 0:
+      document.querySelector(".line1").style.display = "none";
+      document.querySelector(".half-line1").style.display = "flex";
+      break;
+    case 1:
+      document.querySelector(".line2").style.display = "none";
+      document.querySelector(".half-line2").style.display = "flex";
+      break;
+    case 2:
+      document.querySelector(".line3").style.display = "none";
+      document.querySelector(".half-line3").style.display = "flex";
+      break;
+    case 3:
+      document.querySelector(".line4").style.display = "none";
+      document.querySelector(".half-line4").style.display = "flex";
+      break;
+    default:
+      break;
+  }
+  
 }
 
 // Function to show the next slide
@@ -271,7 +322,7 @@ function showNextSlide() {
     console.log(progressBar);
     progressBar.style.display = "none";
   }
-
+  
   if (currentSlideIndex === 4) {
     const doctorFees =
       optimalPremiumPrices[selectedValues.systemLevel][
@@ -287,11 +338,11 @@ function showNextSlide() {
       parseInt(teethExtractionPrice);
 
     document.getElementById("firstSlide").innerHTML =
-      "Implants and prosthetics: €" + doctorFees;
+      "Implants and prosthetics: <b>€" + doctorFees + "</b>";
     document.getElementById("teethExtraction").innerHTML =
-      "Additional tooth extraction: + €" + teethExtractionPrice;
+      "Additional tooth extraction: <b>+ €" + teethExtractionPrice + "</b>";
     document.getElementById("totalPrice").innerHTML =
-      "Doctor's experience: + €" + finalPrice;
+      "Doctor's experience: <b>+ €" + finalPrice + "</b>";
   }
 
   // Increment the slide index
@@ -308,7 +359,7 @@ function showNextSlide() {
   // Check if this is the last slide
   if (currentSlideIndex === slides.length - 2) {
     // Hide the Next button
-    document.querySelector(".next-button").style.visibility = "hidden";
+    document.querySelector(".next-button").style.display = "none";
     document.querySelector(".prev-button").style.display = "none";
     // document.querySelector(".buttton-style").style.width = "50%";
 
@@ -316,7 +367,12 @@ function showNextSlide() {
     document.querySelector(".submit-button").style.display = "block";
   } else {
     // Show the Next button
-    document.querySelector(".next-button").style.display = "block";
+    // document.querySelector(".next-button").style.display = "block";
+      // Enable the next button and add the 'button-style' class
+    const nextButton = document.querySelector(".next-button");
+    nextButton.display = "block";
+    nextButton.disabled = true;
+    nextButton.classList.remove("button-style");
     document.querySelector(".prev-button").style.display = "block";
     // Hide the Submit button
     document.querySelector(".submit-button").style.display = "none";
@@ -326,6 +382,7 @@ function showNextSlide() {
     document.querySelector(".next-button").style.display = "none";
     document.querySelector(".prev-button").style.display = "none";
   }
+
   storeSelectedButtonState();
 
   updateProgressBar();

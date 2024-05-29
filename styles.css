@@ -11,11 +11,21 @@ body {
   padding: 0; */
 }
 
-#carousel {
-  margin: 0 auto;
-  overflow: hidden;
+/* Popup css */
+.container {
+  border: 1px solid darkgray;
+  padding: 40px;
+  border-radius: 43px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 100%;
   max-width: 620px;
+  margin: 0 auto;
+}
+
+#carousel {
+  height: 794px;
+  overflow: hidden;
+
 }
 
 .slide {
@@ -61,7 +71,7 @@ button:hover {
 }
 
 .navigation-container {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -112,7 +122,6 @@ button:hover {
   max-width: 620px;
   margin: auto;
   gap: 28px;
-  height: 500px;
 
   /* border: 1px solid black;
   border-radius: 20px; */
@@ -142,7 +151,7 @@ button:hover {
 }
 .left-inputs,
 .right-inputs {
-  width: 48%;
+  width: 50%;
 }
 .left-inputs input,
 .right-inputs input {
@@ -187,8 +196,8 @@ button:hover {
 }
 
 .step {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   /* outline-style: solid; */
   /* outline-color: #10bd69; */
   border: 1px solid #10bd69;
@@ -344,11 +353,10 @@ button.disabled {
 /* Center and style the error message */
 #errorMsg {
   color: red;
-  text-align: center;
-  margin: 5% auto 0;
-  width: 80%; /* Adjust width for responsiveness */
-  max-width: 620px; /* Limit maximum width */
-  padding: 10px;
+  text-align: right;
+  width: 80%;
+  max-width: 620px;
+  padding: 0px 10px;
 }
 
 /* Media query for smaller screens */
@@ -365,4 +373,30 @@ button.disabled {
     font-size: 12px; /* Even smaller font size for very small screens */
     width: 95%; /* Adjust width for very small screens */
   }
+}
+
+.half-colored-line {
+  display: flex;
+  flex: 1;
+  width: 50%;
+}
+
+
+.red {
+  background-color: #34c99d;
+}
+
+.white {
+  background-color: #ddd;
+}
+
+.g-recaptcha {
+  margin: 0;
+}
+
+.submit-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
