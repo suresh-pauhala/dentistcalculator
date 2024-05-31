@@ -35,7 +35,7 @@
           />
         </header>
   
-        <hr class="divider" />
+        <div class="divider"></div>
         <div class="progress-bar">
           <div class="step active">1.</div>
           <div class="line line1"></div>
@@ -152,7 +152,7 @@
   
               <button onclick="selectTeeth(this)" data-value="8">
                 <img
-                  src="../Images/7 Trūksta visų dantų apatiniame žandikaulyje.png"
+                  src="../Images/8 Trūksta dantų visoje burnoje.png"
                   alt=""
                   height="22%"
                   width="22%"
@@ -269,7 +269,7 @@
             <div class="left-options">
               <button onclick="selectTeeth(this)" data-value="experienced">
                 <img
-                  src="../Images/9 Trūksta dantų priekyje.png"
+                  src="../Images/Ellipse 2.png"
                   alt="xyz"
                   height="22%"
                   width="22%"
@@ -280,7 +280,7 @@
   
               <button onclick="selectTeeth(this)" data-value="inexperienced">
                 <img
-                  src="../Images/10 Trūksta dantų gale.png"
+                  src="../Images/Ellipse 3.png"
                   alt=""
                   height="22%"
                   width="22%"
@@ -299,7 +299,7 @@
             <div class="left-options">
               <button onclick="selectTeeth(this)" data-value="basic">
                 <img
-                  src="../Images/9 Trūksta dantų priekyje.png"
+                  src="../Images/star1.png"
                   alt="xyz"
                   height="22%"
                   width="22%"
@@ -309,20 +309,20 @@
               </button>
               <button onclick="selectTeeth(this)" data-value="optimal">
                 <img
-                  src="../Images/10 Trūksta dantų gale.png"
-                  alt=""
+                  src="../Images/star2.png"
+                  alt="xyz"
                   height="22%"
-                  width="22%"
+                  width="22%"  
                 />
                 <p class="optionText">Optimali</p>
                 <img src="../Images/Vector 1.png" class="selectImg" />
               </button>
               <button onclick="selectTeeth(this)" data-value="premium">
                 <img
-                  src="../Images/10 Trūksta dantų gale.png"
-                  alt=""
+                  src="../Images/star3.png"
+                  alt="xyz"
                   height="22%"
-                  width="22%"
+                  width="22%"  
                 />
                 <p class="optionText">Premium</p>
                 <img src="../Images/Vector 1.png" class="selectImg" />
@@ -345,19 +345,21 @@
                 gap: 0px;
               "
             >
-              <p class="level-heading">Select the implant system level:</p>
+              <p class="level-heading" style="width: 260px;">KAINOS SKAIČIUOKLĖS REZULTATAS:</p>
   
-              <p style="">PRICE CALCULATOR RESULT:</p>
-              <p id="firstSlide"></p>
-              <p>Complexity: + € XXX</p>
-              <p id="teethExtraction"></p>
-              <p id="totalPrice"></p>
-              <b style="font-size: large; color: #1E1C83; margin-top:3%">VISO:€ XXX</b>
+              <p id="firstSlide" class="calcText"></p>
+              <p class="calcText" id="secondSlide"></p>
+              <p id="teethExtraction" class="calcText"></p>
+              <p id="totalPrice" class="calcText"></p>
+              <p id="lastSlide" class="calcText"></p>
+
+              <p style="font-size: large; color: #1E1C83;font-weight: 700;
+              margin-top: 20px;" id ="total"></p>
             </div>
             <div class="right-options">
               <img
                 src="../Images/image 1.png"
-                style="width: 100%;"
+                style="width: 85%;"
               />
             </div>
           </div>
@@ -367,7 +369,7 @@
           <div class="final-form">
             <div class="left-inputs">
               <input type="text" class="inputStyle" placeholder="vardas" id="name"/>
-              <input type="text" class="inputStyle" placeholder="+370"/>
+              <input type="number" class="inputStyle" placeholder="+370"/>
               <input type="email" class="inputStyle" placeholder="El. paštas"  id="email"/>
             </div>
             <div class="right-inputs">
@@ -399,7 +401,7 @@
         </div>
       </div>
       <div class="navigation-container">
-        <button class="prev-button" style="display: none">
+        <button class="prev-button" style="visibility:hidden">
           Previous
         </button>
         <button class="next-button" style="background-color: #fff;color:#E4E4E4;border: 2px solid #F4F4F4;" disabled>Next</button>

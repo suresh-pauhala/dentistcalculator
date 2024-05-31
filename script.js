@@ -246,22 +246,22 @@ function updateProgressBar() {
   switch (currentSlideIndex) {
     case 1:
       document.querySelector(".line1").style.display = "block";
-      document.querySelector(".line1").classList.add('active');
+      document.querySelector(".line1").classList.add("active");
       document.querySelector(".half-line1").style.display = "none";
       break;
     case 2:
       document.querySelector(".line2").style.display = "block";
-      document.querySelector(".line2").classList.add('active');
+      document.querySelector(".line2").classList.add("active");
       document.querySelector(".half-line2").style.display = "none";
       break;
     case 3:
       document.querySelector(".line3").style.display = "block";
-      document.querySelector(".line3").classList.add('active');
+      document.querySelector(".line3").classList.add("active");
       document.querySelector(".half-line3").style.display = "none";
       break;
     case 4:
       document.querySelector(".line4").style.display = "block";
-      document.querySelector(".line4").classList.add('active');
+      document.querySelector(".line4").classList.add("active");
       document.querySelector(".half-line4").style.display = "none";
       break;
     default:
@@ -303,7 +303,6 @@ function handleProgressBar() {
     default:
       break;
   }
-  
 }
 
 // Function to show the next slide
@@ -311,6 +310,7 @@ function showNextSlide() {
   // Hide the current slide
   const prevButton = document.querySelector(".prev-button");
   prevButton.style.display = "block";
+  prevButton.style.visibility = "unset";
   slides[currentSlideIndex].style.display = "none";
   prevButton.disabled = true;
   // console.log(currentSlideIndex);
@@ -322,27 +322,61 @@ function showNextSlide() {
     console.log(progressBar);
     progressBar.style.display = "none";
   }
-  
+
   if (currentSlideIndex === 4) {
     const doctorFees =
       optimalPremiumPrices[selectedValues.systemLevel][
         selectedValues.experienceLevel
       ][selectedValues.missingTeeth];
+    let systemselection = 0;
     const teethPositionPrice =
       optimalPremiumPrices.teethPosition[selectedValues.teethPosition];
     const teethExtractionPrice =
       optimalPremiumPrices.teethExtraction[selectedValues.totalTeethRemove];
+    const experience =
+      optimalPremiumPrices[selectedValues.systemLevel][
+        selectedValues.experienceLevel
+      ];
+    let complexity = 0;
+
+    if (selectedValues.teethPosition == "front") {
+      if (selectedValues.missingTeeth <= 5) {
+        complexity =
+          doctorFees + selectedValues.missingTeeth * teethPositionPrice;
+      } else {
+        complexity = "NA";
+      }
+    } else {
+      complexity = doctorFees;
+    }
+
+    if ((selectedValues.systemLevel = "optimal")) {
+      systemselection = 120;
+    } else if ((selectedValues.systemLevel = "premium")) {
+      systemselection = 220;
+    }
     const finalPrice =
       parseInt(doctorFees) +
       parseInt(teethPositionPrice) +
       parseInt(teethExtractionPrice);
 
+    console.log(doctorFees);
+    console.log(complexity);
+    console.log(teethExtractionPrice);
+    console.log(finalPrice);
+
     document.getElementById("firstSlide").innerHTML =
       "Implants and prosthetics: <b>€" + doctorFees + "</b>";
+    document.getElementById("secondSlide").innerHTML =
+      "Sudėtingumas: <b>€" + complexity + "</b>";
     document.getElementById("teethExtraction").innerHTML =
-      "Additional tooth extraction: <b>+ €" + teethExtractionPrice + "</b>";
+      "Papildomas dantų šalinimas: <b>+ €" + teethExtractionPrice + "</b>";
     document.getElementById("totalPrice").innerHTML =
-      "Doctor's experience: <b>+ €" + finalPrice + "</b>";
+      "Gydytojo patirtis: <b>+ €" + doctorFees + "</b>";
+    document.getElementById("lastSlide").innerHTML =
+      "Implantų sistemos lygis: <b>+ €" + systemselection + "</b>";
+    document.getElementById("total").innerHTML =
+      "VISO: <b>+ €" + finalPrice + "</b>";
   }
 
   // Increment the slide index
@@ -368,7 +402,7 @@ function showNextSlide() {
   } else {
     // Show the Next button
     // document.querySelector(".next-button").style.display = "block";
-      // Enable the next button and add the 'button-style' class
+    // Enable the next button and add the 'button-style' class
     const nextButton = document.querySelector(".next-button");
     nextButton.display = "block";
     nextButton.disabled = true;
@@ -462,12 +496,13 @@ function submitForm() {
 
   // If all inputs are valid, proceed with form submission or further processing
   if (isValid) {
+    errorMsg.textContent = "";
     showNextSlide();
     // You can add your form submission logic here
   } else {
-    nameInput.placeholder = "This field is required";
-    emailInput.placeholder = "Not a valid email";
-    errorMsg.textContent = "Errors have been detected in the form";
+    nameInput.placeholder = "Šis laukas būtinas";
+    emailInput.placeholder = "Neteisingas el. pašto formatas";
+    errorMsg.textContent = "Formoje aptikta klaidų";
   }
 
   // Email validation function

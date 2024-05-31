@@ -18,14 +18,14 @@ body {
   border-radius: 43px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 100%;
-  max-width: 620px;
+  max-width: 540px;
   margin: 0 auto;
 }
 
 #carousel {
-  height: 794px;
-  overflow: hidden;
-
+  height: 650px;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .slide {
@@ -119,14 +119,14 @@ button:hover {
 .options {
   display: flex;
   /* justify-content: space-between; Distribute items evenly */
-  max-width: 620px;
+  max-width: 540px;
   margin: auto;
   gap: 28px;
 
   /* border: 1px solid black;
   border-radius: 20px; */
 }
-@media (max-width: 620px) {
+@media (max-width: 540px) {
   .options {
     width: 100%;
   }
@@ -174,7 +174,7 @@ button:hover {
   padding: 0 10px;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 540px) {
   .final-form {
     flex-wrap: wrap;
     text-align: center;
@@ -268,7 +268,7 @@ button:hover {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: 620px;
+  max-width: 540px;
 }
 
 .selectImg {
@@ -309,12 +309,14 @@ button.disabled {
   font-size: 16px;
   color: #1e1c83;
   font-weight: 700;
+  margin: 4px 0px;
 }
 
 .divider {
   margin-top: 20px;
   width: 100%;
   margin-bottom: 20px;
+  border: 1px solid #e4e4e4;
 }
 
 .contact-slide {
@@ -355,7 +357,7 @@ button.disabled {
   color: red;
   text-align: right;
   width: 80%;
-  max-width: 620px;
+  max-width: 540px;
   padding: 0px 10px;
 }
 
@@ -381,7 +383,6 @@ button.disabled {
   width: 50%;
 }
 
-
 .red {
   background-color: #34c99d;
 }
@@ -390,13 +391,24 @@ button.disabled {
   background-color: #ddd;
 }
 
-.g-recaptcha {
-  margin: 0;
-}
-
 .submit-btn-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+}
+.calcText {
+  margin: 2px 0;
+}
+
+/* .imageContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+} */
+
+.g-recaptcha {
+  margin: 0;
+  transform: scale(0.83);
+  transform-origin: 0 0;
 }
