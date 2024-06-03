@@ -42,7 +42,7 @@ button {
   color: rgb(83, 84, 83);
   border-radius: 100px;
   cursor: pointer;
-  max-width: 100%;
+  max-width: 100vw;
   display: flex;
   align-items: center;
 }
@@ -374,6 +374,30 @@ button.disabled {
   #errorMsg {
     font-size: 12px; /* Even smaller font size for very small screens */
     width: 95%; /* Adjust width for very small screens */
+  }
+  button {
+    width: 168px;
+    padding: 0;
+  }
+  .optionText {
+    font-size: 14px;
+  }
+  button img {
+    height: 32px;
+    width: 32px;
+    margin-right: 4px;
+    margin-left: 2px;
+  }
+  .options {
+    gap: 3px;
+  }
+  .container {
+    padding: 2px;
+    width: 350px;
+  }
+  .selectImg {
+    width: 12px;
+    height: 12px;
   }
 }
 
