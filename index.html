@@ -333,19 +333,9 @@
   
         <div class="slide" style="display: none">
           <!-- Second Slide Content -->
-          <div class="options" style="">
-            <div
-              class=""
-              style="
-                font-size: 15px;
-                color: #808080;
-                text-align: left;
-                margin-top: 0;
-                font-weight: 500;
-                gap: 0px;
-              "
-            >
-              <p class="level-heading" style="width: 260px;">KAINOS SKAIČIUOKLĖS REZULTATAS:</p>
+          <div class="options" >
+            <div class="left-text">
+              <p class="heading1">KAINOS SKAIČIUOKLĖS REZULTATAS:</p>
   
               <p id="firstSlide" class="calcText"></p>
               <p class="calcText" id="secondSlide"></p>
@@ -359,12 +349,12 @@
             <div class="right-options">
               <img
                 src="../images/image 1.png"
-                style="width: 85%;"
+                class="imgSmallScreen"
               />
             </div>
           </div>
-          <p class="level-heading">
-            Susisiekite dabar ir gaukite 5% nuolaidą su kodu <span style="color: #FF8D21">SKAIČIUOKLĖ</span>
+          <p class="level-heading heading2">
+            Susisiekite dabar ir gaukite 5% nuolaidą su kodu <span style="color: #FF8D21"> SKAIČIUOKLĖ</span>
           </p>
           <div class="final-form">
             <div class="left-inputs">
@@ -384,7 +374,6 @@
             </div>
             <div class="right-inputs">
               <p class="g-recaptcha" data-sitekey="6LeR3OcpAAAAAFgTFMayhss45pVz5Qxp04MB-Nqs">Submit</p>
-    
             </div>
           </div>
         </div>
@@ -402,17 +391,29 @@
       </div>
       <div class="navigation-container">
         <button class="prev-button" style="visibility:hidden">
-          Previous
+          ATGAL
         </button>
-        <button class="next-button" style="background-color: #fff;color:#E4E4E4;border: 2px solid #F4F4F4;" disabled>Next</button>
+        <button class="next-button" style="background-color: #fff;color:#E4E4E4;border: 2px solid #F4F4F4;" disabled>PIRMYN</button>
       </div>
       <div class="submit-btn-container">
         <button
+          onclick="showPrevSlide()"
+          class="submit-button prev-button"
+          style="display: none;margin-top: -20px; margin-right: auto;"
+          id="prevlast"
+
+        >
+        ATGAL
+        </button>
+        
+        <button
           onclick="submitForm()"
           class="submit-button button-style"
-          style="display: none"
+          style="display: none; margin-top: -55px; margin-right: 20px;"
+          id="submit"
+
         >
-          Submit
+        SUSISIEKTI
         </button>
         <p id="errorMsg" ></p>
       </div>

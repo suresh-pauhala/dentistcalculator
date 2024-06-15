@@ -312,7 +312,8 @@ function showNextSlide() {
   prevButton.style.display = "block";
   prevButton.style.visibility = "unset";
   slides[currentSlideIndex].style.display = "none";
-  prevButton.disabled = true;
+
+  prevButton.disabled = false;
   // console.log(currentSlideIndex);
 
   if (currentSlideIndex === 4 || currentSlideIndex === 5) {
@@ -398,7 +399,8 @@ function showNextSlide() {
     // document.querySelector(".buttton-style").style.width = "50%";
 
     // Show the Submit button
-    document.querySelector(".submit-button").style.display = "block";
+    document.getElementById("submit").style.display = "block";
+    document.getElementById("prevlast").style.display = "block";
   } else {
     // Show the Next button
     // document.querySelector(".next-button").style.display = "block";
@@ -409,12 +411,16 @@ function showNextSlide() {
     nextButton.classList.remove("button-style");
     document.querySelector(".prev-button").style.display = "block";
     // Hide the Submit button
-    document.querySelector(".submit-button").style.display = "none";
+    document.getElementById("submit").style.display = "none";
+    document.getElementById("prevlast").style.display = "none";
   }
   if (currentSlideIndex === slides.length - 1) {
     // Hide the Next button
+    console.log(slides.length);
     document.querySelector(".next-button").style.display = "none";
     document.querySelector(".prev-button").style.display = "none";
+    document.getElementById("submit").style.display = "none";
+    document.getElementById("prevlast").style.display = "none";
   }
 
   storeSelectedButtonState();
@@ -456,6 +462,40 @@ function showPrevSlide() {
   // Show the previous slide
   slides[currentSlideIndex].style.display = "block";
   storeSelectedButtonState();
+
+  if (currentSlideIndex === slides.length - 2) {
+    // Hide the Next button
+    document.querySelector(".next-button").style.display = "none";
+    document.querySelector(".prev-button").style.display = "none";
+    // document.querySelector(".buttton-style").style.width = "50%";
+
+    // Show the Submit button
+    document.getElementById("submit").style.display = "block";
+    document.getElementById("prevlast").style.display = "block";
+  } else {
+    // Show the Next button
+    // document.querySelector(".next-button").style.display = "block";
+    // Enable the next button and add the 'button-style' class
+
+    const nextButton = document.querySelector(".next-button");
+    nextButton.style.display = "block";
+    nextButton.disabled = true;
+    nextButton.classList.remove("button-style");
+    document.querySelector(".prev-button").style.display = "block";
+    // Hide the Submit button
+    document.getElementById("submit").style.display = "none";
+    document.getElementById("prevlast").style.display = "none";
+    console.log(nextButton.display);
+    console.log(nextButton.style);
+  }
+  if (currentSlideIndex === slides.length - 1) {
+    // Hide the Next button
+    console.log(slides.length);
+    document.querySelector(".next-button").style.display = "none";
+    document.querySelector(".prev-button").style.display = "none";
+    document.getElementById("submit").style.display = "none";
+    document.getElementById("prevlast").style.display = "none";
+  }
 
   updateProgressBar();
 }

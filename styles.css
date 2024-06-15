@@ -19,7 +19,7 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 100%;
   max-width: 540px;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
 #carousel {
@@ -87,7 +87,7 @@ button:hover {
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  width: 100%;
+  width: 40%;
   max-width: 185px;
   justify-content: center;
   height: 55px;
@@ -106,7 +106,7 @@ button:hover {
 
 .prev-button:hover,
 .next-button:hover {
-  background-color: gray;
+  background-color: rgb(255, 255, 255);
 }
 
 @media (min-width: 400px) {
@@ -181,7 +181,7 @@ button:hover {
     width: 100%;
   }
   .failas-input .inputStyle {
-    margin: auto;
+    padding: 5px;
     width: 90%;
   }
 }
@@ -258,7 +258,18 @@ button:hover {
   background-color: #10bd69;
 }
 
-.heading {
+.heading1 {
+  color: #1e1c83;
+  display: flex;
+  align-items: center;
+  margin-top: 2%;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 4px 0px;
+  width: 312px;
+}
+
+.heading2 {
   color: #1e1c83;
   display: flex;
   align-items: center;
@@ -293,13 +304,13 @@ button.disabled {
 }
 
 .inputStyle {
-  border: 1.5px solid #34c99d;
+  border: 1.5px solid #1e1c83;
   border-radius: 11px;
   height: 42px;
   margin-top: 7px;
 }
 .inputStyleBig {
-  border: 1.5px solid #34c99d;
+  border: 1.5px solid #1e1c83;
   border-radius: 11px;
   height: 148px;
   margin-top: 7px;
@@ -312,6 +323,14 @@ button.disabled {
   margin: 4px 0px;
 }
 
+.left-text {
+  font-size: 16px;
+  color: #808080;
+  text-align: left;
+  margin-top: 0;
+  font-weight: 500;
+  gap: 0px;
+}
 .divider {
   margin-top: 20px;
   width: 100%;
@@ -361,6 +380,9 @@ button.disabled {
   padding: 0px 10px;
 }
 
+/* .imgSmallScreen {
+  width: 85%;
+} */
 /* Media query for smaller screens */
 @media (max-width: 768px) {
   #errorMsg {
@@ -371,6 +393,10 @@ button.disabled {
 
 /* Media query for very small screens */
 @media (max-width: 480px) {
+  .buttonAlignment {
+    margin-right: 160px;
+    width: 43%;
+  }
   #errorMsg {
     font-size: 12px; /* Even smaller font size for very small screens */
     width: 95%; /* Adjust width for very small screens */
@@ -398,6 +424,29 @@ button.disabled {
   .selectImg {
     width: 12px;
     height: 12px;
+  }
+
+  .imgSmallScreen {
+    width: 114px;
+    height: 170px;
+  }
+  .left-inputs input,
+  .right-inputs input {
+    width: 87%;
+    padding: 0 8px;
+  }
+  .heading1 {
+    font-size: 12px;
+    width: 225px;
+  }
+  .heading2 {
+    font-size: 11px;
+  }
+  .left-text {
+    font-size: 13.7px;
+  }
+  .button-style {
+    max-width: 140px;
   }
 }
 
@@ -435,4 +484,9 @@ button.disabled {
   margin: 0;
   transform: scale(0.83);
   transform-origin: 0 0;
+}
+
+.buttonAlignment {
+  margin-right: 354px;
+  width: 100%;
 }
