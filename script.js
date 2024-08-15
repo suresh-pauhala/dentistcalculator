@@ -342,13 +342,12 @@ function showNextSlide() {
 
     if (selectedValues.teethPosition == "front") {
       if (selectedValues.missingTeeth <= 5) {
-        complexity =
-          doctorFees + selectedValues.missingTeeth * teethPositionPrice;
+        complexity = selectedValues.missingTeeth * teethPositionPrice;
       } else {
-        complexity = "NA";
+        complexity = 0;
       }
     } else {
-      complexity = doctorFees;
+      complexity = 0;
     }
 
     if ((selectedValues.systemLevel = "optimal")) {
@@ -358,8 +357,9 @@ function showNextSlide() {
     }
     const finalPrice =
       parseInt(doctorFees) +
-      parseInt(teethPositionPrice) +
-      parseInt(teethExtractionPrice);
+      parseInt(complexity) +
+      parseInt(teethExtractionPrice) +
+      parseInt(systemselection);
 
     console.log(doctorFees);
     console.log(complexity);
@@ -373,7 +373,7 @@ function showNextSlide() {
     document.getElementById("teethExtraction").innerHTML =
       "Papildomas dantų šalinimas: <b>+ €" + teethExtractionPrice + "</b>";
     document.getElementById("totalPrice").innerHTML =
-      "Gydytojo patirtis: <b>+ €" + doctorFees + "</b>";
+      "Gydytojo patirtis: <b>+ €" + experience + "</b>";
     document.getElementById("lastSlide").innerHTML =
       "Implantų sistemos lygis: <b>+ €" + systemselection + "</b>";
     document.getElementById("total").innerHTML =
