@@ -1,97 +1,49 @@
 const basePrices = {
   base: {
-    experienced: {
-      1: 1060, // One tooth missing
-      2: 2120, // Two teeth missing
-      3: 2500, // Three teeth missing
-      4: 2800, // Four teeth missing
-      5: 3100, // Five and more teeth missing
-      6: 4500, // "lower arch teeth missing"
-      7: 4500, // "upper arch teeth missing"
-      8: 9000, // "both arch teeth missing"
-    },
-    inexperienced: {
-      1: 980,
-      2: 1960,
-      3: 2260,
-      4: 2560,
-      5: 2860,
-      6: 3597,
-      7: 3597,
-      8: 7294,
-    },
+    1: 980,
+    2: 1960,
+    3: 2260,
+    4: 2560,
+    5: 2860,
+    6: 3697,
+    7: 3697,
+    8: 7294,
   },
 };
 
 const optimalPremiumPrices = {
   basic: {
-    experienced: {
-      1: 1060, // One tooth missing
-      2: 2120, // Two teeth missing
-      3: 2500, // Three teeth missing
-      4: 2800, // Four teeth missing
-      5: 3100, // Five and more teeth missing
-      6: 4500, // "lower arch teeth missing"
-      7: 4500, // "upper arch teeth missing"
-      8: 9000, // "both arch teeth missing"
-    },
-    inexperienced: {
-      1: 980,
-      2: 1960,
-      3: 2260,
-      4: 2560,
-      5: 2860,
-      6: 3597,
-      7: 3597,
-      8: 7294,
-    },
+    1: 980,
+    2: 1960,
+    3: 2260,
+    4: 2560,
+    5: 2860,
+    6: 3697,
+    7: 3697,
+    8: 7294,
   },
   optimal: {
-    experienced: {
-      1: basePrices.base.experienced[1] + 120,
-      2: basePrices.base.experienced[2] + 120,
-      3: basePrices.base.experienced[3] + 120,
-      4: basePrices.base.experienced[4] + 120,
-      5: basePrices.base.experienced[5] + 120,
-      6: basePrices.base.experienced[6] + 120,
-      7: basePrices.base.experienced[7],
-      8: basePrices.base.experienced[8],
-    },
-    inexperienced: {
-      1: basePrices.base.inexperienced[1] + 120,
-      2: basePrices.base.inexperienced[2] + 120,
-      3: basePrices.base.inexperienced[3] + 120,
-      4: basePrices.base.inexperienced[4] + 120,
-      5: basePrices.base.inexperienced[5] + 120,
-      6: basePrices.base.inexperienced[6],
-      7: basePrices.base.inexperienced[7],
-      8: basePrices.base.inexperienced[8],
-    },
+    1: basePrices.base[1] + 120,
+    2: basePrices.base[2] + 120,
+    3: basePrices.base[3] + 120,
+    4: basePrices.base[4] + 120,
+    5: basePrices.base[5] + 120,
+    6: basePrices.base[6],
+    7: basePrices.base[7],
+    8: basePrices.base[8],
   },
   premium: {
-    experienced: {
-      1: basePrices.base.experienced[1] + 220,
-      2: basePrices.base.experienced[2] + 220,
-      3: basePrices.base.experienced[3] + 220,
-      4: basePrices.base.experienced[4] + 220,
-      5: basePrices.base.experienced[5] + 220,
-      6: basePrices.base.experienced[6] + 220,
-      7: basePrices.base.experienced[7],
-      8: basePrices.base.experienced[8],
-    },
-    inexperienced: {
-      1: basePrices.base.inexperienced[1] + 220,
-      2: basePrices.base.inexperienced[2] + 220,
-      3: basePrices.base.inexperienced[3] + 220,
-      4: basePrices.base.inexperienced[4] + 220,
-      5: basePrices.base.inexperienced[5] + 220,
-      6: basePrices.base.inexperienced[6],
-      7: basePrices.base.inexperienced[7],
-      8: basePrices.base.inexperienced[8],
-    },
+    1: basePrices.base[1] + 210,
+    2: basePrices.base[2] + 210,
+    3: basePrices.base[3] + 210,
+    4: basePrices.base[4] + 210,
+    5: basePrices.base[5] + 210,
+    6: basePrices.base[6],
+    7: basePrices.base[7],
+    8: basePrices.base[8],
   },
   teethPosition: {
-    front: 150,
+    front: 160,
     rear: 0,
   },
   teethExtraction: {
@@ -154,9 +106,6 @@ function selectTeeth(button) {
         selectedValues["totalTeethRemove"] = button.dataset.value;
         break;
       case 3:
-        selectedValues["experienceLevel"] = button.dataset.value;
-        break;
-      case 4:
         selectedValues["systemLevel"] = button.dataset.value;
         break;
       default:
@@ -259,11 +208,11 @@ function updateProgressBar() {
       document.querySelector(".line3").classList.add("active");
       document.querySelector(".half-line3").style.display = "none";
       break;
-    case 4:
-      document.querySelector(".line4").style.display = "block";
-      document.querySelector(".line4").classList.add("active");
-      document.querySelector(".half-line4").style.display = "none";
-      break;
+    // case 4:
+    //   document.querySelector(".line4").style.display = "block";
+    //   document.querySelector(".line4").classList.add("active");
+    //   document.querySelector(".half-line4").style.display = "none";
+    //   break;
     default:
       break;
   }
@@ -296,10 +245,7 @@ function handleProgressBar() {
       document.querySelector(".line3").style.display = "none";
       document.querySelector(".half-line3").style.display = "flex";
       break;
-    case 3:
-      document.querySelector(".line4").style.display = "none";
-      document.querySelector(".half-line4").style.display = "flex";
-      break;
+
     default:
       break;
   }
@@ -316,7 +262,7 @@ function showNextSlide() {
   prevButton.disabled = false;
   // console.log(currentSlideIndex);
 
-  if (currentSlideIndex === 4 || currentSlideIndex === 5) {
+  if (currentSlideIndex === 3 || currentSlideIndex === 4) {
     console.log(currentSlideIndex);
 
     const progressBar = document.querySelector(".progress-bar");
@@ -324,21 +270,22 @@ function showNextSlide() {
     progressBar.style.display = "none";
   }
 
-  if (currentSlideIndex === 4) {
+  if (currentSlideIndex === 3) {
     const doctorFees =
       optimalPremiumPrices[selectedValues.systemLevel][
-        selectedValues.experienceLevel
-      ][selectedValues.missingTeeth];
+        selectedValues.missingTeeth
+      ];
+    let complexity = 0;
+
     let systemselection = 0;
     const teethPositionPrice =
       optimalPremiumPrices.teethPosition[selectedValues.teethPosition];
     const teethExtractionPrice =
       optimalPremiumPrices.teethExtraction[selectedValues.totalTeethRemove];
-    const experience =
-      optimalPremiumPrices[selectedValues.systemLevel][
-        selectedValues.experienceLevel
-      ];
-    let complexity = 0;
+    // const experience =
+    //   optimalPremiumPrices[selectedValues.systemLevel][
+    //     selectedValues.experienceLevel
+    //   ];
 
     if (selectedValues.teethPosition == "front") {
       if (selectedValues.missingTeeth <= 5) {
@@ -350,11 +297,14 @@ function showNextSlide() {
       complexity = 0;
     }
 
-    if ((selectedValues.systemLevel = "optimal")) {
-      systemselection = 120;
-    } else if ((selectedValues.systemLevel = "premium")) {
-      systemselection = 220;
+    if (selectedValues.missingTeeth <= 5) {
+      if (selectedValues.systemLevel == "optimal") {
+        systemselection = selectedValues.missingTeeth * 120;
+      } else if (selectedValues.systemLevel == "premium") {
+        systemselection = selectedValues.missingTeeth * 210;
+      }
     }
+
     const finalPrice =
       parseInt(doctorFees) +
       parseInt(complexity) +
@@ -367,17 +317,18 @@ function showNextSlide() {
     console.log(finalPrice);
 
     document.getElementById("firstSlide").innerHTML =
-      "Implants and prosthetics: <b>€" + doctorFees + "</b>";
+      "Implants and prosthetics: <b>€ " + doctorFees + "</b>";
     document.getElementById("secondSlide").innerHTML =
-      "Sudėtingumas: <b>€" + complexity + "</b>";
+      "Sudėtingumas: <b>+ € " + complexity + "</b>";
     document.getElementById("teethExtraction").innerHTML =
-      "Papildomas dantų šalinimas: <b>+ €" + teethExtractionPrice + "</b>";
-    document.getElementById("totalPrice").innerHTML =
-      "Gydytojo patirtis: <b>+ €" + experience + "</b>";
+      "Papildomas dantų šalinimas: <b>+ € " + teethExtractionPrice + "</b>";
+
     document.getElementById("lastSlide").innerHTML =
-      "Implantų sistemos lygis: <b>+ €" + systemselection + "</b>";
+      "Implantų sistemos lygis: <b>+ € " + systemselection + "</b>";
     document.getElementById("total").innerHTML =
-      "VISO: <b>+ €" + finalPrice + "</b>";
+      "VISO: <b> €" + finalPrice + "</b>";
+    document.getElementById("text").innerHTML =
+      "Pateikiama kaina preliminari ir gali keistis priklausomai nuo Jūsų individualios situacijos.";
   }
 
   // Increment the slide index
@@ -456,7 +407,8 @@ function showPrevSlide() {
 
   // Check if the index is out of bounds
   if (currentSlideIndex < 0) {
-    currentSlideIndex = slides.length - 1; // Set to the last slide
+    currentSlideIndex = 0; // keep to the first slide itself
+    console.log("test ", currentSlideIndex);
   }
 
   // Show the previous slide
@@ -490,7 +442,7 @@ function showPrevSlide() {
   }
   if (currentSlideIndex === slides.length - 1) {
     // Hide the Next button
-    console.log(slides.length);
+    //console.log(slides.length);
     document.querySelector(".next-button").style.display = "none";
     document.querySelector(".prev-button").style.display = "none";
     document.getElementById("submit").style.display = "none";

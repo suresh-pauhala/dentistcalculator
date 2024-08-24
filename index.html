@@ -55,18 +55,17 @@
             <div class="line red"></div>
             <div class="line white"></div>
           </div>
+          
           <div class="step">4.</div>
-          <div class="line line4"></div>
-          <div class="half-colored-line half-line4" style="display: none;">
-            <div class="line red"></div>
-            <div class="line white"></div>
-          </div>
-          <div class="step">5.</div>
           <!-- Add more steps as needed -->
         </div>
         <div class="slide" style="display: block">
-          <p style=" text-align:left; color: #808080; font-size: 20px">
+          <p style=" text-align:left; color: #808080; font-size: 20px;    margin-top: 0px; font-weight: bold;">
             Kiek Jums trūksta dantų iš eilės?
+          </p>
+          <p style=" text-align:left; color: #808080; font-size: 17px;    margin-bottom: 0px;
+">
+            Sriegiant 3 ir daugiau suteikiama papildoma 80 € nuolaida kiekvienam implantui!
           </p>
   
           <div class="options">
@@ -168,7 +167,7 @@
         <!-- Other slides will go here -->
         <div class="slide" style="display: none">
           <!-- Second Slide Content -->
-          <p style=" text-align:left; color: #808080; font-size: 20px">
+          <p style=" text-align:left; color: #808080; font-size: 20px; font-weight: bold;">
             Kur trūksta dantų?
           </p>
   
@@ -202,7 +201,7 @@
         </div>
         <div class="slide" style="display: none">
           <!-- Second Slide Content -->
-                  <p style=" text-align:left; color: #808080; font-size: 20px">
+                  <p style=" text-align:left; color: #808080; font-size: 20px; font-weight: bold;">
                     Ar reikia pašalinti kai kuriuos dantis?</p>
           <div class="options">
             <div class="left-options">
@@ -261,39 +260,10 @@
             </div>
           </div>
         </div>
+        
         <div class="slide" style="display: none">
           <!-- Second Slide Content -->
-                  <p style=" text-align:left; color: #808080; font-size: 20px">
-                    Pasirinkite gydytojo patirtį:</p>
-          <div class="options">
-            <div class="left-options">
-              <button onclick="selectTeeth(this)" data-value="experienced">
-                <img
-                  src="Ellipse 2.png"
-                  alt="xyz"
-                  height="22%"
-                  width="22%"
-                />
-                <p class="optionText">Virš 20 metų</p>
-                <img src="Vector 1.png" class="selectImg" />
-              </button>
-  
-              <button onclick="selectTeeth(this)" data-value="inexperienced">
-                <img
-                  src="Ellipse 3.png"
-                  alt=""
-                  height="22%"
-                  width="22%"
-                />
-                <p class="optionText">Virš 5 metų</p>
-                <img src="Vector 1.png" class="selectImg" />
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="slide" style="display: none">
-          <!-- Second Slide Content -->
-                  <p style=" text-align:left; color: #808080; font-size: 20px">
+                  <p style=" text-align:left; color: #808080; font-size: 20px; font-weight: bold;">
                     Pasirinkite implantų sistemos lygį:</p>
           <div class="options">
             <div class="left-options">
@@ -343,8 +313,8 @@
               <p id="totalPrice" class="calcText"></p>
               <p id="lastSlide" class="calcText"></p>
 
-              <p style="font-size: large; color: #1E1C83;font-weight: 700;
-              margin-top: 20px;" id ="total"></p>
+              <p class="total"style="" id ="total"></p>
+
             </div>
             <div class="right-options">
               <img
@@ -353,6 +323,8 @@
               />
             </div>
           </div>
+          <p id="text" class="simpletext simpletextSize"></p>
+
           <p class="level-heading heading2">
             Susisiekite dabar ir gaukite 5% nuolaidą su kodu <span style="color: #FF8D21"> SKAIČIUOKLĖ</span>
           </p>

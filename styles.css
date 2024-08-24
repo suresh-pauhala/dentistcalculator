@@ -277,7 +277,7 @@ button:hover {
   margin-top: 2%;
 }
 .logo {
-  margin-left: auto;
+  margin-left: 0px;
   margin-right: auto;
   width: 100%;
   max-width: 540px;
@@ -381,9 +381,10 @@ button.disabled {
   padding: 0px 10px;
 }
 
-/* .imgSmallScreen {
-  width: 85%;
-} */
+.imgSmallScreen {
+  width: 172px;
+  height: 166px;
+}
 /* Media query for smaller screens */
 @media (max-width: 768px) {
   #errorMsg {
@@ -429,7 +430,21 @@ button.disabled {
 
   .imgSmallScreen {
     width: 114px;
-    height: 170px;
+    height: 168px;
+  }
+  .total {
+    font-size: large;
+    color: #1e1c83;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+
+  .simpletext {
+    text-align: left;
+    color: #1e1c83;
+    font-weight: 700;
+    margin: 0px 0px;
   }
   .left-inputs input,
   .right-inputs input {
@@ -437,10 +452,13 @@ button.disabled {
     padding: 0 8px;
   }
   .heading1 {
-    font-size: 12px;
+    font-size: 11px;
     width: 225px;
   }
   .heading2 {
+    font-size: 11.2px;
+  }
+  .simpletextSize {
     font-size: 11px;
   }
   .left-text {
@@ -448,6 +466,13 @@ button.disabled {
   }
   .button-style {
     max-width: 140px;
+  }
+  .logo {
+    margin-left: 0px;
+    margin-right: auto;
+    width: 100%;
+    max-width: 540px;
+    margin-left: 10px;
   }
 }
 
@@ -490,4 +515,23 @@ button.disabled {
 .buttonAlignment {
   margin-right: 354px;
   width: 100%;
+}
+.simpletext {
+  text-align: left;
+  color: #1e1c83;
+  font-weight: 400;
+  margin: 0px 0px;
+}
+.total {
+  font-size: large;
+  color: #1e1c83;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+.simpletextSize {
+  color: #1e1c83;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
 }
