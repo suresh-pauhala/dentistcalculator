@@ -103,7 +103,7 @@
               </button>
               <button onclick="selectTeeth(this)" data-value="4">
                 <img
-                  src="3 Trūksta trijų dantų.png"
+                  src="4 Trūksta keturių dantų.png"
                   alt=""
                   height="22%"
                   width="22%"
@@ -121,7 +121,7 @@
                   width="22%"
                 />
   
-                <p class="optionText">5 dantų</p>
+                <p class="optionText">5 dantų <br/> <span class="note">Suteikiama €210 nuolaida</span></p>
                 <img src="Vector 1.png" class="selectImg" />
               </button>
               <button onclick="selectTeeth(this)" data-value="6">
@@ -166,6 +166,7 @@
   
         <!-- Other slides will go here -->
         <div class="slide" style="display: none">
+
           <!-- Second Slide Content -->
           <p style=" text-align:left; color: #808080; font-size: 20px; font-weight: bold;">
             Kur trūksta dantų?
@@ -198,107 +199,200 @@
               </button>
             </div>
           </div>
+
+
+
+
         </div>
+                  <!-- Third Slide Content -->
+
         <div class="slide" style="display: none">
-          <!-- Second Slide Content -->
+
+          <div class="visibleThirdSlideOne">
+
                   <p style=" text-align:left; color: #808080; font-size: 20px; font-weight: bold;">
-                    Ar reikia pašalinti kai kuriuos dantis?</p>
+                    Ar reikia šalinti dantis?</p>
           <div class="options">
             <div class="left-options">
-              <button onclick="selectTeeth(this)" data-value="option1">
+              <button onclick="selectTeeth(this)" data-value="taip">
                 <img
                   src="11  Reikia šalinti vieną dantį.png"
                   alt="xyz"
                   height="22%"
                   width="22%"
                 />
-                <p class="optionText">Šalinti 1 dantį</p>
+                <p class="optionText">Taip</p>
                 <img src="Vector 1.png" class="selectImg" />
               </button>
-              <button onclick="selectTeeth(this)" data-value="option2">
+              <button onclick="selectTeeth(this)" data-value="ne">
                 <img
                   src="12 Reikia šalinti du dantis.png"
                   alt=""
                   height="22%"
                   width="22%"
                 />
-                <p class="optionText">Šalinti 2 dantis</p>
+                <p class="optionText">Ne <span class="note">(pritaikoma papildoma 197 € nuolaida)</span></p>
                 <img src="Vector 1.png" class="selectImg" />
               </button>
-              <button onclick="selectTeeth(this)" data-value="option3">
-                <img
-                  src="13 Reikia šalinti tris dantis.png"
-                  alt=""
-                  height="22%"
-                  width="22%"
-                />
-                <p class="optionText">Šalinti 3 dantis</p>
-                <img src="Vector 1.png" class="selectImg" />
-              </button>
-              <button onclick="selectTeeth(this)" data-value="option4">
-                <img
-                  src="14 Reikia šalinti keturis ir daugiau.png"
-                  alt=""
-                  height="22%"
-                  width="22%"
-                />
-                <p class="optionText">Šalinti 4+ dantis</p>
-                <img src="Vector 1.png" class="selectImg" />
-              </button>
-            </div>
-            <div class="right-options">
-              <button onclick="selectTeeth(this)" data-value="option5">
-                <img
-                  src="15 Nesu tikras.png"
-                  alt=""
-                  height="22%"
-                  width="22%"
-                />
-                <p class="optionText">Nesu tikras</p>
-                <img src="Vector 1.png" class="selectImg" />
-              </button>
+              
             </div>
           </div>
+
+        </div>
+
+        <div class="visibleThirdSlideTwo">
+          <p style=" text-align:left; color: #808080; font-size: 20px">
+            Ar reikia pašalinti kai kuriuos dantis?</p>
+  <div class="options">
+    <div class="left-options">
+      <button onclick="selectTeeth(this)" data-value="option1">
+        <img
+          src="11  Reikia šalinti vieną dantį.png"
+          alt="xyz"
+          height="22%"
+          width="22%"
+        />
+        <p class="optionText">Šalinti 1 dantį</p>
+        <img src="Vector 1.png" class="selectImg" />
+      </button>
+      <button onclick="selectTeeth(this)" data-value="option2">
+        <img
+          src="12 Reikia šalinti du dantis.png"
+          alt=""
+          height="22%"
+          width="22%"
+        />
+        <p class="optionText">Šalinti 2 dantis</p>
+        <img src="Vector 1.png" class="selectImg" />
+      </button>
+      <button onclick="selectTeeth(this)" data-value="option3">
+        <img
+          src="13 Reikia šalinti tris dantis.png"
+          alt=""
+          height="22%"
+          width="22%"
+        />
+        <p class="optionText">Šalinti 3 dantis</p>
+        <img src="Vector 1.png" class="selectImg" />
+      </button>
+      <button onclick="selectTeeth(this)" data-value="option4">
+        <img
+          src="14 Reikia šalinti keturis ir daugiau.png"
+          alt=""
+          height="22%"
+          width="22%"
+        />
+        <p class="optionText">Šalinti 4+ dantis</p>
+        <img src="Vector 1.png" class="selectImg" />
+      </button>
+    </div>
+    <div class="right-options">
+      <button onclick="selectTeeth(this)" data-value="option5">
+        <img
+          src="15 Nesu tikras.png"
+          alt=""
+          height="22%"
+          width="22%"
+        />
+        <p class="optionText">Nesu tikras</p>
+        <img src="Vector 1.png" class="selectImg" />
+      </button>
+    </div>
+  </div>
+        </div>
         </div>
         
         <div class="slide" style="display: none">
-          <!-- Second Slide Content -->
+          <!-- Fourth Slide Content -->
+           <div class="visibleFourthSlideOne">
+
                   <p style=" text-align:left; color: #808080; font-size: 20px; font-weight: bold;">
                     Pasirinkite implantų sistemos lygį:</p>
           <div class="options">
             <div class="left-options">
-              <button onclick="selectTeeth(this)" data-value="basic">
+              <button onclick="selectTeeth(this)" data-value="classic">
                 <img
                   src="star1.png"
                   alt="xyz"
                   height="22%"
                   width="22%"
                 />
-                <p class="optionText">Bazinė</p>
+                <p class="optionText">Klasikinis „ALL-ON-4</p>
                 <img src="Vector 1.png" class="selectImg" />
               </button>
-              <button onclick="selectTeeth(this)" data-value="optimal">
+              <button onclick="selectTeeth(this)" data-value="eko">
+                <img
+                  src="star1.png"
+                  alt="xyz"
+                  height="22%"
+                  width="22%"
+                />
+                <p class="optionText">EKO Be laikino protezo</p>
+                <img src="Vector 1.png" class="selectImg" />
+              </button>
+              <button onclick="selectTeeth(this)" data-value="premium">
                 <img
                   src="star2.png"
                   alt="xyz"
                   height="22%"
                   width="22%"  
                 />
-                <p class="optionText">Optimali</p>
+                <p class="optionText">Premium Daugiau dantų</p>
                 <img src="Vector 1.png" class="selectImg" />
               </button>
-              <button onclick="selectTeeth(this)" data-value="premium">
+              <button onclick="selectTeeth(this)" data-value="exclusive">
                 <img
                   src="star3.png"
                   alt="xyz"
                   height="22%"
                   width="22%"  
                 />
-                <p class="optionText">Premium</p>
+                <p class="optionText">Exclusive Be dirbtinų dantenų</p>
                 <img src="Vector 1.png" class="selectImg" />
               </button>
             </div>
           </div>
+        </div>
+
+        <div class="visibleFourthSlideTwo">
+          <p style=" text-align:left; color: #808080; font-size: 20px">
+            Pasirinkite implantų sistemos lygį:</p>
+  <div class="options">
+    <div class="left-options">
+      <button onclick="selectTeeth(this)" data-value="basic">
+        <img
+          src="star1.png"
+          alt="xyz"
+          height="22%"
+          width="22%"
+        />
+        <p class="optionText">Bazinė</p>
+        <img src="Vector 1.png" class="selectImg" />
+      </button>
+      <button onclick="selectTeeth(this)" data-value="optimal">
+        <img
+          src="star2.png"
+          alt="xyz"
+          height="22%"
+          width="22%"  
+        />
+        <p class="optionText">Optimali</p>
+        <img src="Vector 1.png" class="selectImg" />
+      </button>
+      <button onclick="selectTeeth(this)" data-value="premium">
+        <img
+          src="star3.png"
+          alt="xyz"
+          height="22%"
+          width="22%"  
+        />
+        <p class="optionText">Premium</p>
+        <img src="Vector 1.png" class="selectImg" />
+      </button>
+    </div>
+  </div>
+        </div>
+
         </div>
   
         <div class="slide" style="display: none">

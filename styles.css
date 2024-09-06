@@ -33,11 +33,33 @@ body {
   text-align: center;
 }
 
+.visibleThirdSlideOne {
+  display: none;
+}
+.visibleThirdSlideTwo {
+  display: none;
+}
+
+.visibleFourthSlideOne {
+  display: none;
+}
+
+.visibleFourthSlideTwo {
+  display: none;
+}
+.simpletextSize {
+  color: #1e1c83;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  font-size: 14px;
+}
+
 /* Buttons */
 
 button {
-  padding: 6px 2px;
-  border: 2.5px solid #34c99d;
+  padding: 3px;
+  border: 1px solid #34c99d;
   background-color: #ffffff;
   color: rgb(83, 84, 83);
   border-radius: 100px;
@@ -45,6 +67,10 @@ button {
   max-width: 100vw;
   display: flex;
   align-items: center;
+}
+
+.note {
+  font-size: 12px;
 }
 
 button img {
@@ -302,6 +328,7 @@ button.disabled {
   color: #808080;
   width: 78%;
   text-align: left;
+  height: 22px;
 }
 
 .inputStyle {
@@ -325,7 +352,7 @@ button.disabled {
 }
 
 .left-text {
-  font-size: 16px;
+  font-size: 14px;
   color: #808080;
   text-align: left;
   margin-top: 0;
@@ -335,7 +362,7 @@ button.disabled {
 .divider {
   margin-top: 20px;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   border: 1px solid #e4e4e4;
 }
 
@@ -404,11 +431,13 @@ button.disabled {
     width: 95%; /* Adjust width for very small screens */
   }
   button {
-    width: 168px;
-    padding: 0;
+    width: 173px;
+    padding: 3px;
+    height: 60px;
   }
   .optionText {
     font-size: 14px;
+    height: 15px;
   }
   button img {
     height: 32px;
@@ -462,7 +491,7 @@ button.disabled {
     font-size: 11px;
   }
   .left-text {
-    font-size: 13.7px;
+    font-size: 12.7px;
   }
   .button-style {
     max-width: 140px;
@@ -473,6 +502,9 @@ button.disabled {
     width: 100%;
     max-width: 540px;
     margin-left: 10px;
+  }
+  .note {
+    font-size: 9px;
   }
 }
 
@@ -527,11 +559,5 @@ button.disabled {
   color: #1e1c83;
   font-weight: 700;
   margin-top: 15px;
-}
-
-.simpletextSize {
-  color: #1e1c83;
-  display: flex;
-  align-items: center;
-  margin-top: 0;
+  margin-bottom: 3px;
 }

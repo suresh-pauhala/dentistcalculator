@@ -1,17 +1,4 @@
 const basePrices = {
-  base: {
-    1: 980,
-    2: 1960,
-    3: 2260,
-    4: 2560,
-    5: 2860,
-    6: 3697,
-    7: 3697,
-    8: 7294,
-  },
-};
-
-const optimalPremiumPrices = {
   basic: {
     1: 980,
     2: 1960,
@@ -22,25 +9,32 @@ const optimalPremiumPrices = {
     7: 3697,
     8: 7294,
   },
-  optimal: {
-    1: basePrices.base[1] + 120,
-    2: basePrices.base[2] + 120,
-    3: basePrices.base[3] + 120,
-    4: basePrices.base[4] + 120,
-    5: basePrices.base[5] + 120,
-    6: basePrices.base[6],
-    7: basePrices.base[7],
-    8: basePrices.base[8],
+};
+const optimalPremiumPrices = {
+  classic: {
+    1: 980,
+    2: 1960,
+    3: 2260,
+    4: 2560,
+    5: 2860,
+    6: 3697,
+    7: 3697,
+    8: 7294,
+  },
+  eko: {
+    6: 2440,
+    7: 2440,
+    8: 4880,
   },
   premium: {
-    1: basePrices.base[1] + 210,
-    2: basePrices.base[2] + 210,
-    3: basePrices.base[3] + 210,
-    4: basePrices.base[4] + 210,
-    5: basePrices.base[5] + 210,
-    6: basePrices.base[6],
-    7: basePrices.base[7],
-    8: basePrices.base[8],
+    6: 4697,
+    7: 4697,
+    8: 9394,
+  },
+  exclusive: {
+    6: 9720,
+    7: 9720,
+    8: 19440,
   },
   teethPosition: {
     front: 160,
@@ -198,11 +192,13 @@ function updateProgressBar() {
       document.querySelector(".line1").classList.add("active");
       document.querySelector(".half-line1").style.display = "none";
       break;
+
     case 2:
       document.querySelector(".line2").style.display = "block";
       document.querySelector(".line2").classList.add("active");
       document.querySelector(".half-line2").style.display = "none";
       break;
+
     case 3:
       document.querySelector(".line3").style.display = "block";
       document.querySelector(".line3").classList.add("active");
@@ -237,10 +233,12 @@ function handleProgressBar() {
       document.querySelector(".line1").style.display = "none";
       document.querySelector(".half-line1").style.display = "flex";
       break;
+
     case 1:
       document.querySelector(".line2").style.display = "none";
       document.querySelector(".half-line2").style.display = "flex";
       break;
+
     case 2:
       document.querySelector(".line3").style.display = "none";
       document.querySelector(".half-line3").style.display = "flex";
@@ -271,60 +269,173 @@ function showNextSlide() {
   }
 
   if (currentSlideIndex === 3) {
-    const doctorFees =
-      optimalPremiumPrices[selectedValues.systemLevel][
-        selectedValues.missingTeeth
-      ];
-    let complexity = 0;
-
     let systemselection = 0;
-    const teethPositionPrice =
-      optimalPremiumPrices.teethPosition[selectedValues.teethPosition];
-    const teethExtractionPrice =
-      optimalPremiumPrices.teethExtraction[selectedValues.totalTeethRemove];
+
     // const experience =
     //   optimalPremiumPrices[selectedValues.systemLevel][
     //     selectedValues.experienceLevel
     //   ];
 
-    if (selectedValues.teethPosition == "front") {
-      if (selectedValues.missingTeeth <= 5) {
-        complexity = selectedValues.missingTeeth * teethPositionPrice;
-      } else {
-        complexity = 0;
-      }
-    } else {
-      complexity = 0;
-    }
+    // if (selectedValues.teethPosition == "front") {
+    //   if (selectedValues.missingTeeth <= 5) {
+    //     complexity = selectedValues.missingTeeth * teethPositionPrice;
+    //   } else {
+    //     complexity = 0;
+    //   }
+    // } else {
+    //   complexity = 0;
+    // }
 
-    if (selectedValues.missingTeeth <= 5) {
-      if (selectedValues.systemLevel == "optimal") {
-        systemselection = selectedValues.missingTeeth * 120;
-      } else if (selectedValues.systemLevel == "premium") {
-        systemselection = selectedValues.missingTeeth * 210;
-      }
-    }
+    // if (selectedValues.missingTeeth <= 5) {
+    //   if (selectedValues.systemLevel == "optimal") {
 
-    const finalPrice =
-      parseInt(doctorFees) +
-      parseInt(complexity) +
-      parseInt(teethExtractionPrice) +
-      parseInt(systemselection);
+    //       systemselection = selectedValues.missingTeeth * 120;
 
-    console.log(doctorFees);
-    console.log(complexity);
-    console.log(teethExtractionPrice);
+    //   } else if (selectedValues.systemLevel == "premium") {
+
+    //       systemselection = selectedValues.missingTeeth * 210;
+
+    //   }
+    // }
+
+    let finalPrice = 0;
+
     console.log(finalPrice);
 
-    document.getElementById("firstSlide").innerHTML =
-      "Implants and prosthetics: <b>€ " + doctorFees + "</b>";
-    document.getElementById("secondSlide").innerHTML =
-      "Sudėtingumas: <b>+ € " + complexity + "</b>";
-    document.getElementById("teethExtraction").innerHTML =
-      "Papildomas dantų šalinimas: <b>+ € " + teethExtractionPrice + "</b>";
+    let oneTeetMissing1 = 510;
+    let oneTeetMissing2 = 470;
 
-    document.getElementById("lastSlide").innerHTML =
-      "Implantų sistemos lygis: <b>+ € " + systemselection + "</b>";
+    let twoTeetMissing1 = 1020;
+    let twoTeetMissing2 = 940;
+
+    let threeTeetMissing1 = 1020;
+    let threeTeetMissing2 = 1240;
+
+    let fourTeetMissing1 = 1020;
+    let fourTeetMissing2 = 1540;
+
+    let fiveTeetMissing1 = 1320;
+    let fiveTeetMissing2 = 1840;
+
+    let withNeValue = 197;
+    let withoutNeValue = 0;
+
+    let addedFullArch = 0;
+
+    if (selectedValues.missingTeeth <= 5) {
+      document.getElementById("teethExtraction").innerHTML =
+        "Papildomas dantų šalinimas: <b> " + withoutNeValue + " € </b>";
+
+      var switching = parseInt(selectedValues.missingTeeth);
+
+      switch (switching) {
+        case 1:
+          console.log("inside", selectedValues.missingTeeth);
+
+          document.getElementById(
+            "firstSlide"
+          ).innerHTML = `Dantų implantas: <b> ${oneTeetMissing1} € </b><br/> Cirkonio keramikos vainikėlis: <b> ${oneTeetMissing2} € </b>`;
+          addedFullArch = oneTeetMissing1 + oneTeetMissing2;
+          if (selectedValues.systemLevel == "optimal") {
+            systemselection = 120;
+          } else if (selectedValues.systemLevel == "premium") {
+            systemselection = 210;
+          }
+
+          break;
+
+        case 2:
+          document.getElementById(
+            "firstSlide"
+          ).innerHTML = `2 Dantų implantas: <b> ${twoTeetMissing1} € </b><br/> Cirkonio keramikos vainikėlis: <b>${twoTeetMissing2} € </b>`;
+          addedFullArch = twoTeetMissing1 + twoTeetMissing2;
+          if (selectedValues.systemLevel == "optimal") {
+            systemselection = 2 * 120;
+          } else if (selectedValues.systemLevel == "premium") {
+            systemselection = 2 * 210;
+          }
+
+          break;
+
+        case 3:
+          console.log("inside", selectedValues.missingTeeth);
+          document.getElementById(
+            "firstSlide"
+          ).innerHTML = `2 Dantų implantas: <b> ${threeTeetMissing1} € </b><br/> Cirkonio keramikos vainikėlis: <b>${threeTeetMissing2} € </b>`;
+          addedFullArch = threeTeetMissing1 + threeTeetMissing2;
+          if (selectedValues.systemLevel == "optimal") {
+            systemselection = 2 * 120;
+          } else if (selectedValues.systemLevel == "premium") {
+            systemselection = 2 * 210;
+          }
+
+          break;
+
+        case 4:
+          document.getElementById(
+            "firstSlide"
+          ).innerHTML = `2 Dantų implantas:<b> ${fourTeetMissing1} € </b><br/> Cirkonio keramikos vainikėlis: <b>${fourTeetMissing2} €</b>`;
+          addedFullArch = fourTeetMissing1 + fourTeetMissing2;
+          if (selectedValues.systemLevel == "optimal") {
+            systemselection = 2 * 120;
+          } else if (selectedValues.systemLevel == "premium") {
+            systemselection = 2 * 210;
+          }
+
+          break;
+
+        case 5:
+          console.log("inside", selectedValues.missingTeeth);
+
+          document.getElementById(
+            "firstSlide"
+          ).innerHTML = `3 Dantų implantas:<b> ${fiveTeetMissing1} €<b><br/> Cirkonio keramikos vainikėlis:<b> ${fiveTeetMissing2} € </b>`;
+
+          addedFullArch = fiveTeetMissing1 + fiveTeetMissing2;
+          if (selectedValues.systemLevel == "optimal") {
+            systemselection = 3 * 120;
+          } else if (selectedValues.systemLevel == "premium") {
+            systemselection = 3 * 210;
+          }
+
+          break;
+        default:
+          "";
+      }
+      console.log("in less than 5");
+      document.getElementById("lastSlide").innerHTML =
+        "Implantų sistemos lygis: <b>+ € " + systemselection + "</b>";
+      finalPrice = parseInt(addedFullArch) + parseInt(systemselection);
+      document.getElementById("total").innerHTML =
+        "VISO: <b> €" + finalPrice + "</b>";
+    } else {
+      const systemSelectionFullArch =
+        optimalPremiumPrices[selectedValues.systemLevel][
+          selectedValues.missingTeeth
+        ];
+      console.log(
+        "systemSelectionFullArch value is: ",
+        systemSelectionFullArch
+      );
+      document.getElementById(
+        "firstSlide"
+      ).innerHTML = `Viso žandikaulio protezavimas: ${systemSelectionFullArch} €`;
+      if (selectedValues.totalTeethRemove === "ne") {
+        document.getElementById("teethExtraction").innerHTML =
+          "Papildomas dantų šalinimas: <b> -" + withNeValue + " € </b>";
+
+        finalPrice = systemSelectionFullArch - withNeValue;
+        document.getElementById("total").innerHTML =
+          "VISO: <b> €" + finalPrice + "</b>";
+      } else {
+        document.getElementById("teethExtraction").innerHTML =
+          "Papildomas dantų šalinimas: <b> " + withoutNeValue + " € </b>";
+
+        finalPrice = systemSelectionFullArch + withoutNeValue;
+        document.getElementById("total").innerHTML =
+          "VISO: <b> €" + finalPrice + "</b>";
+      }
+    }
     document.getElementById("total").innerHTML =
       "VISO: <b> €" + finalPrice + "</b>";
     document.getElementById("text").innerHTML =
@@ -372,6 +483,31 @@ function showNextSlide() {
     document.querySelector(".prev-button").style.display = "none";
     document.getElementById("submit").style.display = "none";
     document.getElementById("prevlast").style.display = "none";
+  }
+
+  if (currentSlideIndex === 2) {
+    console.log("inside third: ", currentSlideIndex);
+
+    if (selectedValues.missingTeeth > 5) {
+      document.querySelector(".visibleThirdSlideTwo").style.display = "none";
+      document.querySelector(".visibleThirdSlideOne").style.display = "block";
+    }
+    if (selectedValues.missingTeeth <= 5) {
+      document.querySelector(".visibleThirdSlideOne").style.display = "none";
+      document.querySelector(".visibleThirdSlideTwo").style.display = "block";
+    }
+  }
+  if (currentSlideIndex === 3) {
+    console.log("inside fourth: ", currentSlideIndex);
+
+    if (selectedValues.missingTeeth > 5) {
+      document.querySelector(".visibleFourthSlideTwo").style.display = "none";
+      document.querySelector(".visibleFourthSlideOne").style.display = "block";
+    }
+    if (selectedValues.missingTeeth <= 5) {
+      document.querySelector(".visibleFourthSlideOne").style.display = "none";
+      document.querySelector(".visibleFourthSlideTwo").style.display = "block";
+    }
   }
 
   storeSelectedButtonState();
