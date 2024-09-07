@@ -49,7 +49,6 @@ const optimalPremiumPrices = {
   },
 };
 const slides = document.querySelectorAll(".slide");
-
 let selectedValues = {};
 
 const optionButtons = document.querySelectorAll(".options button");
@@ -61,8 +60,18 @@ optionButtons.forEach((button) => {
 
 function selectTeeth(button) {
   handleProgressBar();
+
   // Get the index of the current slide
   const currentSlideIndex = getCurrentSlideIndex();
+
+  // if (slides[currentSlideIndex].className == "slide visibleBasedOnFullArch") {
+  //   if (selectedValues.missingTeeth > 5) {
+  //     slides[currentSlideIndex].style.display = "none";
+  //     handleProgressBarMini();
+  //   }
+  // } else {
+  //   handleProgressBar();
+  // }
 
   // Check if the current slide index is within the valid range (0 to 4)
   if (currentSlideIndex >= 0 && currentSlideIndex <= 4) {
@@ -168,6 +177,9 @@ function selectTeeth(button) {
 // Function to get the index of the current slide
 function getCurrentSlideIndex() {
   // Find the index of the visible slide
+  console.log(slides);
+  console.log(slides[1].className);
+
   for (let i = 0; i < slides.length; i++) {
     if (slides[i].style.display === "block") {
       console.log(i);
@@ -226,6 +238,50 @@ function updateProgressBar() {
   });
 }
 
+function updateProgressBarMini() {
+  const steps = document.querySelectorAll(".step");
+  // const lines = document.querySelectorAll(".line");
+  console.log("index=>", currentSlideIndex);
+  switch (currentSlideIndex) {
+    case 1:
+      document.querySelector(".line1").style.display = "block";
+      document.querySelector(".line1").classList.add("active");
+      document.querySelector(".half-line1").style.display = "none";
+      break;
+
+    case 2:
+      document.querySelector(".line2").style.display = "block";
+      document.querySelector(".line2").classList.add("active");
+      document.querySelector(".half-line2").style.display = "none";
+      break;
+
+    // case 3:
+    //   document.querySelector(".line3").style.display = "block";
+    //   document.querySelector(".line3").classList.add("active");
+    //   document.querySelector(".half-line3").style.display = "none";
+    //   break;
+    // case 4:
+    //   document.querySelector(".line4").style.display = "block";
+    //   document.querySelector(".line4").classList.add("active");
+    //   document.querySelector(".half-line4").style.display = "none";
+    //   break;
+    default:
+      break;
+  }
+  steps.forEach((step, index) => {
+    if (index <= currentSlideIndex) {
+      step.classList.add("active");
+    } else {
+      step.classList.remove("active");
+    }
+    // if (index < currentSlideIndex) {
+    //   lines[index].classList.add("active");
+    // } else {
+    //   // lines[index].classList.remove("active");
+    // }
+  });
+}
+
 function handleProgressBar() {
   console.log("current=>", currentSlideIndex);
   switch (currentSlideIndex) {
@@ -243,6 +299,29 @@ function handleProgressBar() {
       document.querySelector(".line3").style.display = "none";
       document.querySelector(".half-line3").style.display = "flex";
       break;
+
+    default:
+      break;
+  }
+}
+
+function handleProgressBarMini() {
+  console.log("current=>", currentSlideIndex);
+  switch (currentSlideIndex) {
+    case 0:
+      document.querySelector(".line1").style.display = "none";
+      document.querySelector(".half-line1").style.display = "flex";
+      break;
+
+    case 1:
+      document.querySelector(".line2").style.display = "none";
+      document.querySelector(".half-line2").style.display = "flex";
+      break;
+
+    // case 2:
+    //   document.querySelector(".line3").style.display = "none";
+    //   document.querySelector(".half-line3").style.display = "flex";
+    //   break;
 
     default:
       break;
@@ -374,7 +453,7 @@ function showNextSlide() {
         case 4:
           document.getElementById(
             "firstSlide"
-          ).innerHTML = `2 Dantų implantas:<b> ${fourTeetMissing1} € </b><br/> Cirkonio keramikos vainikėlis: <b>${fourTeetMissing2} €</b>`;
+          ).innerHTML = `2 Dantų implantas:<b> ${fourTeetMissing1} € </b><br/> Cirkonio keramikos vainikėlis: <b>${fourTeetMissing2} € </b>`;
           addedFullArch = fourTeetMissing1 + fourTeetMissing2;
           if (selectedValues.systemLevel == "optimal") {
             systemselection = 2 * 120;
@@ -389,7 +468,7 @@ function showNextSlide() {
 
           document.getElementById(
             "firstSlide"
-          ).innerHTML = `3 Dantų implantas:<b> ${fiveTeetMissing1} €<b><br/> Cirkonio keramikos vainikėlis:<b> ${fiveTeetMissing2} € </b>`;
+          ).innerHTML = `3 Dantų implantas:<b> ${fiveTeetMissing1} €</b><br/> Cirkonio keramikos vainikėlis:<b> ${fiveTeetMissing2} € </b>`;
 
           addedFullArch = fiveTeetMissing1 + fiveTeetMissing2;
           if (selectedValues.systemLevel == "optimal") {
@@ -404,10 +483,10 @@ function showNextSlide() {
       }
       console.log("in less than 5");
       document.getElementById("lastSlide").innerHTML =
-        "Implantų sistemos lygis: <b>+ € " + systemselection + "</b>";
+        "Implantų sistemos lygis: <b>" + systemselection + " € </b>";
       finalPrice = parseInt(addedFullArch) + parseInt(systemselection);
       document.getElementById("total").innerHTML =
-        "VISO: <b> €" + finalPrice + "</b>";
+        "VISO: <b>" + finalPrice + " € </b>";
     } else {
       const systemSelectionFullArch =
         optimalPremiumPrices[selectedValues.systemLevel][
@@ -419,7 +498,7 @@ function showNextSlide() {
       );
       document.getElementById(
         "firstSlide"
-      ).innerHTML = `Viso žandikaulio protezavimas: ${systemSelectionFullArch} €`;
+      ).innerHTML = `Viso žandikaulio protezavimas:<b> ${systemSelectionFullArch} €</b>`;
       if (selectedValues.totalTeethRemove === "ne") {
         document.getElementById("teethExtraction").innerHTML =
           "Papildomas dantų šalinimas: <b> -" + withNeValue + " € </b>";
@@ -436,8 +515,8 @@ function showNextSlide() {
           "VISO: <b> €" + finalPrice + "</b>";
       }
     }
-    document.getElementById("total").innerHTML =
-      "VISO: <b> €" + finalPrice + "</b>";
+    // document.getElementById("total").innerHTML =
+    //   "VISO: <b> €" + finalPrice + "</b>";
     document.getElementById("text").innerHTML =
       "Pateikiama kaina preliminari ir gali keistis priklausomai nuo Jūsų individualios situacijos.";
   }
@@ -511,6 +590,18 @@ function showNextSlide() {
   }
 
   storeSelectedButtonState();
+
+  // if (slides[currentSlideIndex].className == "slide visibleBasedOnFullArch") {
+  //   if (selectedValues.missingTeeth > 5) {
+  //     currentSlideIndex++;
+  //     console.log(slides[currentSlideIndex].style.display);
+  //     slides[currentSlideIndex].style.display = "block";
+  //     console.log(slides[currentSlideIndex].style.display);
+  //     // updateProgressBarMini();
+  //   } else {
+  //     slides[currentSlideIndex].style.display = "block";
+  //   }
+  // }
 
   updateProgressBar();
 }

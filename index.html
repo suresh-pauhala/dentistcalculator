@@ -165,7 +165,10 @@
         </div>
   
         <!-- Other slides will go here -->
-        <div class="slide" style="display: none">
+        <div class="slide visibleBasedOnFullArch" style="display: none">
+          <div class="visibleBasedOnFullArchchild">
+
+         
 
           <!-- Second Slide Content -->
           <p style=" text-align:left; color: #808080; font-size: 20px; font-weight: bold;">
@@ -200,7 +203,7 @@
             </div>
           </div>
 
-
+        </div>
 
 
         </div>
@@ -310,16 +313,6 @@
                     Pasirinkite implantų sistemos lygį:</p>
           <div class="options">
             <div class="left-options">
-              <button onclick="selectTeeth(this)" data-value="classic">
-                <img
-                  src="star1.png"
-                  alt="xyz"
-                  height="22%"
-                  width="22%"
-                />
-                <p class="optionText">Klasikinis „ALL-ON-4</p>
-                <img src="Vector 1.png" class="selectImg" />
-              </button>
               <button onclick="selectTeeth(this)" data-value="eko">
                 <img
                   src="star1.png"
@@ -327,27 +320,38 @@
                   height="22%"
                   width="22%"
                 />
-                <p class="optionText">EKO Be laikino protezo</p>
+                <p class="optionText">EKO <br/> <span class="systemSelectionText"> Be laikino protezo </span></p>
                 <img src="Vector 1.png" class="selectImg" />
               </button>
-              <button onclick="selectTeeth(this)" data-value="premium">
+              <button onclick="selectTeeth(this)" data-value="classic">
                 <img
                   src="star2.png"
                   alt="xyz"
                   height="22%"
-                  width="22%"  
+                  width="22%"
                 />
-                <p class="optionText">Premium Daugiau dantų</p>
+                <p class="optionText">Klasikinis <br/> <span class="systemSelectionText">„ALL-ON-4“</span> </p>
                 <img src="Vector 1.png" class="selectImg" />
               </button>
-              <button onclick="selectTeeth(this)" data-value="exclusive">
+            
+              <button onclick="selectTeeth(this)" data-value="premium">
                 <img
                   src="star3.png"
                   alt="xyz"
                   height="22%"
                   width="22%"  
                 />
-                <p class="optionText">Exclusive Be dirbtinų dantenų</p>
+                <p class="optionText">Premium <br/> <span class="systemSelectionText">Daugiau dantų </span></p>
+                <img src="Vector 1.png" class="selectImg" />
+              </button>
+              <button onclick="selectTeeth(this)" data-value="exclusive">
+                <img
+                  src="Ellipse 4.png"
+                  alt="xyz"
+                  height="22%"
+                  width="22%"  
+                />
+                <p class="optionText">Exclusive <br/> <span class="systemSelectionText"> Be dirbtinių dantenų </span></p>
                 <img src="Vector 1.png" class="selectImg" />
               </button>
             </div>
@@ -420,7 +424,7 @@
           <p id="text" class="simpletext simpletextSize"></p>
 
           <p class="level-heading heading2">
-            Susisiekite dabar ir gaukite 5% nuolaidą su kodu <span style="color: #FF8D21"> SKAIČIUOKLĖ</span>
+            Susisiekite dabar ir gaukite 5% nuolaidą su kodu <span style="color: #FF8D21; margin-left: 4px;"> SKAIČIUOKLĖ</span>
           </p>
           <div class="final-form">
             <div class="left-inputs">

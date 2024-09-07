@@ -70,6 +70,7 @@ button {
 }
 
 .note {
+  color: #34c99d;
   font-size: 12px;
 }
 
@@ -328,7 +329,7 @@ button.disabled {
   color: #808080;
   width: 78%;
   text-align: left;
-  height: 22px;
+  height: 26px;
 }
 
 .inputStyle {
@@ -359,6 +360,7 @@ button.disabled {
   font-weight: 500;
   gap: 0px;
 }
+
 .divider {
   margin-top: 20px;
   width: 100%;
@@ -395,6 +397,11 @@ button.disabled {
   min-width: 185px;
   max-width: 185px;
 }
+.systemSelectionText {
+  font-size: 14px;
+}
+.visibleBasedOnFullArch {
+}
 .inputStyle.error {
   border: 1px solid red;
 }
@@ -422,6 +429,9 @@ button.disabled {
 
 /* Media query for very small screens */
 @media (max-width: 480px) {
+  .systemSelectionText {
+    font-size: 11px;
+  }
   .buttonAlignment {
     margin-right: 160px;
     width: 43%;
@@ -504,6 +514,7 @@ button.disabled {
     margin-left: 10px;
   }
   .note {
+    color: #34c99d;
     font-size: 9px;
   }
 }
