@@ -206,6 +206,9 @@ function updateProgressBar() {
       break;
 
     case 2:
+      document.querySelector(".line1").style.display = "block";
+      document.querySelector(".line1").classList.add("active");
+      document.querySelector(".half-line1").style.display = "none";
       document.querySelector(".line2").style.display = "block";
       document.querySelector(".line2").classList.add("active");
       document.querySelector(".half-line2").style.display = "none";
@@ -255,11 +258,11 @@ function updateProgressBarMini() {
       document.querySelector(".half-line2").style.display = "none";
       break;
 
-    // case 3:
-    //   document.querySelector(".line3").style.display = "block";
-    //   document.querySelector(".line3").classList.add("active");
-    //   document.querySelector(".half-line3").style.display = "none";
-    //   break;
+    case 3:
+      document.querySelector(".line3").style.display = "block";
+      document.querySelector(".line3").classList.add("active");
+      document.querySelector(".half-line3").style.display = "none";
+      break;
     // case 4:
     //   document.querySelector(".line4").style.display = "block";
     //   document.querySelector(".line4").classList.add("active");
@@ -318,10 +321,10 @@ function handleProgressBarMini() {
       document.querySelector(".half-line2").style.display = "flex";
       break;
 
-    // case 2:
-    //   document.querySelector(".line3").style.display = "none";
-    //   document.querySelector(".half-line3").style.display = "flex";
-    //   break;
+    case 2:
+      document.querySelector(".line3").style.display = "none";
+      document.querySelector(".half-line3").style.display = "flex";
+      break;
 
     default:
       break;
@@ -530,7 +533,24 @@ function showNextSlide() {
   }
 
   // Show the next slide
-  slides[currentSlideIndex].style.display = "block";
+  // slides[currentSlideIndex].style.display = "block";
+
+  if (slides[currentSlideIndex].className == "slide visibleBasedOnFullArch") {
+    if (selectedValues.missingTeeth > 5) {
+      console.log("inside if");
+      slides[currentSlideIndex].style.display = "none";
+
+      currentSlideIndex++;
+
+      slides[currentSlideIndex].style.display = "block";
+    } else {
+      console.log("in else");
+      slides[currentSlideIndex].style.display = "block";
+    }
+  } else {
+    console.log("in outer else");
+    slides[currentSlideIndex].style.display = "block";
+  }
 
   // Check if this is the last slide
   if (currentSlideIndex === slides.length - 2) {
@@ -591,18 +611,6 @@ function showNextSlide() {
 
   storeSelectedButtonState();
 
-  // if (slides[currentSlideIndex].className == "slide visibleBasedOnFullArch") {
-  //   if (selectedValues.missingTeeth > 5) {
-  //     currentSlideIndex++;
-  //     console.log(slides[currentSlideIndex].style.display);
-  //     slides[currentSlideIndex].style.display = "block";
-  //     console.log(slides[currentSlideIndex].style.display);
-  //     // updateProgressBarMini();
-  //   } else {
-  //     slides[currentSlideIndex].style.display = "block";
-  //   }
-  // }
-
   updateProgressBar();
 }
 
@@ -639,7 +647,25 @@ function showPrevSlide() {
   }
 
   // Show the previous slide
-  slides[currentSlideIndex].style.display = "block";
+  // slides[currentSlideIndex].style.display = "block";
+
+  if (slides[currentSlideIndex].className == "slide visibleBasedOnFullArch") {
+    if (selectedValues.missingTeeth > 5) {
+      console.log("inside if");
+      slides[currentSlideIndex].style.display = "none";
+
+      currentSlideIndex--;
+
+      slides[currentSlideIndex].style.display = "block";
+    } else {
+      console.log("in else");
+      slides[currentSlideIndex].style.display = "block";
+    }
+  } else {
+    console.log("in outer else");
+    slides[currentSlideIndex].style.display = "block";
+  }
+
   storeSelectedButtonState();
 
   if (currentSlideIndex === slides.length - 2) {
@@ -675,7 +701,6 @@ function showPrevSlide() {
     document.getElementById("submit").style.display = "none";
     document.getElementById("prevlast").style.display = "none";
   }
-
   updateProgressBar();
 }
 
