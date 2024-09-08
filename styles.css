@@ -33,6 +33,13 @@ body {
   text-align: center;
 }
 
+.plainText {
+  text-align: left;
+  color: #808080;
+  font-size: 15px;
+  margin-bottom: 0px;
+}
+
 .visibleThirdSlideOne {
   display: none;
 }
@@ -211,6 +218,7 @@ button:hover {
   .failas-input .inputStyle {
     padding: 5px;
     width: 90%;
+    height: 32px;
   }
 }
 
@@ -362,7 +370,7 @@ button.disabled {
 }
 
 .divider {
-  margin-top: 20px;
+  margin-top: 10px;
   width: 100%;
   margin-bottom: 15px;
   border: 1px solid #e4e4e4;
@@ -430,6 +438,30 @@ button.disabled {
 
 /* Media query for very small screens */
 @media (max-width: 480px) {
+  #carousel {
+    height: 520px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding: 5px;
+  }
+
+  .failas-label {
+    font-size: 10px;
+    color: #b9b9b9;
+    text-align: left;
+  }
+
+  .captcha {
+    height: 50px;
+    width: 50px;
+  }
+
+  .plainText {
+    text-align: left;
+    color: #808080;
+    font-size: 12px;
+    margin-bottom: 0px;
+  }
   .systemSelectionText {
     font-size: 11px;
   }
@@ -442,7 +474,7 @@ button.disabled {
     width: 95%; /* Adjust width for very small screens */
   }
   button {
-    width: 173px;
+    width: 168px;
     padding: 3px;
     height: 60px;
   }
@@ -457,7 +489,7 @@ button.disabled {
     margin-left: 2px;
   }
   .options {
-    gap: 3px;
+    gap: 1px;
   }
   .container {
     padding: 2px;
@@ -470,7 +502,7 @@ button.disabled {
 
   .imgSmallScreen {
     width: 114px;
-    height: 168px;
+    height: 135px;
   }
   .total {
     font-size: large;
@@ -486,23 +518,28 @@ button.disabled {
     font-weight: 700;
     margin: 0px 0px;
   }
-  .left-inputs input,
+  .left-inputs input {
+    width: 87%;
+    padding: 0 8px;
+    height: 32px;
+  }
   .right-inputs input {
     width: 87%;
     padding: 0 8px;
+    height: 114px;
   }
   .heading1 {
     font-size: 11px;
     width: 225px;
   }
   .heading2 {
-    font-size: 11.2px;
+    font-size: 10.2px;
   }
   .simpletextSize {
-    font-size: 11px;
+    font-size: 10px;
   }
   .left-text {
-    font-size: 12.7px;
+    font-size: 11.7px;
   }
   .button-style {
     max-width: 140px;
@@ -513,10 +550,11 @@ button.disabled {
     width: 100%;
     max-width: 540px;
     margin-left: 10px;
+    margin-top: 6px;
   }
   .note {
     color: #34c99d;
-    font-size: 9px;
+    font-size: 8.8px;
   }
 }
 

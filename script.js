@@ -404,9 +404,29 @@ function showNextSlide() {
 
     let addedFullArch = 0;
 
+    const teethPositionPrice =
+      optimalPremiumPrices.teethPosition[selectedValues.teethPosition];
+
+    const teethExtractionPrice =
+      optimalPremiumPrices.teethExtraction[selectedValues.totalTeethRemove];
+
+    let complexity = 0;
+
+    if (selectedValues.teethPosition == "front") {
+      if (selectedValues.missingTeeth <= 5) {
+        complexity = selectedValues.missingTeeth * teethPositionPrice;
+      } else {
+        complexity = 0;
+      }
+    } else {
+      complexity = 0;
+    }
+
     if (selectedValues.missingTeeth <= 5) {
+      document.getElementById("secondSlide").innerHTML =
+        "Sudėtingumas: <b>€" + complexity + "</b>";
       document.getElementById("teethExtraction").innerHTML =
-        "Papildomas dantų šalinimas: <b> " + withoutNeValue + " € </b>";
+        "Papildomas dantų šalinimas: <b> " + teethExtractionPrice + " € </b>";
 
       var switching = parseInt(selectedValues.missingTeeth);
 
@@ -487,7 +507,11 @@ function showNextSlide() {
       console.log("in less than 5");
       document.getElementById("lastSlide").innerHTML =
         "Implantų sistemos lygis: <b>" + systemselection + " € </b>";
-      finalPrice = parseInt(addedFullArch) + parseInt(systemselection);
+      finalPrice =
+        parseInt(addedFullArch) +
+        parseInt(systemselection) +
+        parseInt(complexity) +
+        parseInt(teethExtractionPrice);
       document.getElementById("total").innerHTML =
         "VISO: <b>" + finalPrice + " € </b>";
     } else {
@@ -611,6 +635,14 @@ function showNextSlide() {
 
   storeSelectedButtonState();
 
+  let selectedValuesLength = selectedValues.length;
+
+  if (selectedValues.systemLevel) {
+    const nextButton = document.querySelector(".next-button");
+    nextButton.disabled = false;
+    nextButton.classList.add("button-style");
+  }
+
   updateProgressBar();
 }
 
@@ -701,6 +733,30 @@ function showPrevSlide() {
     document.getElementById("submit").style.display = "none";
     document.getElementById("prevlast").style.display = "none";
   }
+
+  let selectedValuesLength = selectedValues.length;
+  if (selectedValues.missingTeeth) {
+    const nextButton = document.querySelector(".next-button");
+    nextButton.disabled = false;
+    nextButton.classList.add("button-style");
+  }
+  if (selectedValues.systemLevel) {
+    const nextButton = document.querySelector(".next-button");
+    nextButton.disabled = false;
+    nextButton.classList.add("button-style");
+  }
+
+  if (selectedValues.teethPosition) {
+    const nextButton = document.querySelector(".next-button");
+    nextButton.disabled = false;
+    nextButton.classList.add("button-style");
+  }
+  if (selectedValues.totalTeethRemove) {
+    const nextButton = document.querySelector(".next-button");
+    nextButton.disabled = false;
+    nextButton.classList.add("button-style");
+  }
+
   updateProgressBar();
 }
 
