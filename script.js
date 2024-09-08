@@ -635,8 +635,6 @@ function showNextSlide() {
 
   storeSelectedButtonState();
 
-  let selectedValuesLength = selectedValues.length;
-
   if (selectedValues.systemLevel) {
     const nextButton = document.querySelector(".next-button");
     nextButton.disabled = false;
@@ -755,6 +753,13 @@ function showPrevSlide() {
     const nextButton = document.querySelector(".next-button");
     nextButton.disabled = false;
     nextButton.classList.add("button-style");
+  }
+
+  if (currentSlideIndex !== 4) {
+    console.log("inside remove display property");
+    const progressBar = document.querySelector(".progress-bar");
+    console.log(progressBar);
+    progressBar.style.removeProperty("display");
   }
 
   updateProgressBar();
