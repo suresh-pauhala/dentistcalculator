@@ -423,6 +423,10 @@ function showNextSlide() {
     }
 
     if (selectedValues.missingTeeth <= 5) {
+      console.log(
+        "inside less than 5 missing teeth",
+        selectedValues.missingTeeth
+      );
       document.getElementById("secondSlide").innerHTML =
         "Sudėtingumas: <b> " + complexity + " € </b>";
       document.getElementById("teethExtraction").innerHTML =
@@ -527,13 +531,17 @@ function showNextSlide() {
         "firstSlide"
       ).innerHTML = `Viso žandikaulio protezavimas:<b> ${systemSelectionFullArch} €</b>`;
       if (selectedValues.totalTeethRemove === "ne") {
+        document.getElementById("secondSlide").innerHTML = "";
+        document.getElementById("lastSlide").innerHTML = "";
         document.getElementById("teethExtraction").innerHTML =
-          "Papildomas dantų šalinimas: <b> -" + withNeValue + " € </b>";
+          "Papildomas dantų šalinimas: <b> - " + withNeValue + " € </b>";
 
         finalPrice = systemSelectionFullArch - withNeValue;
         document.getElementById("total").innerHTML =
           "VISO: <b> €" + finalPrice + "</b>";
       } else {
+        document.getElementById("secondSlide").innerHTML = "";
+        document.getElementById("lastSlide").innerHTML = "";
         document.getElementById("teethExtraction").innerHTML =
           "Papildomas dantų šalinimas: <b> " + withoutNeValue + " € </b>";
 
