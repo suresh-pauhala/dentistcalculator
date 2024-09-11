@@ -413,10 +413,10 @@ function showNextSlide() {
     let complexity = 0;
 
     if (selectedValues.teethPosition == "front") {
-      if (selectedValues.missingTeeth <= 5) {
-        complexity = selectedValues.missingTeeth * teethPositionPrice;
+      if (selectedValues.missingTeeth <= 1) {
+        complexity = 160;
       } else {
-        complexity = 0;
+        complexity = 320;
       }
     } else {
       complexity = 0;
@@ -424,7 +424,7 @@ function showNextSlide() {
 
     if (selectedValues.missingTeeth <= 5) {
       document.getElementById("secondSlide").innerHTML =
-        "Sudėtingumas: <b>€" + complexity + "</b>";
+        "Sudėtingumas: <b> " + complexity + " € </b>";
       document.getElementById("teethExtraction").innerHTML =
         "Papildomas dantų šalinimas: <b> " + teethExtractionPrice + " € </b>";
 
@@ -436,7 +436,7 @@ function showNextSlide() {
 
           document.getElementById(
             "firstSlide"
-          ).innerHTML = `Dantų implantas: <b> ${oneTeetMissing1} € </b><br/> Cirkonio keramikos vainikėlis: <b> ${oneTeetMissing2} € </b>`;
+          ).innerHTML = `Dantų implantas: <b> ${oneTeetMissing1} € </b><br/>Cirkonio keramikos vainikėlis: <b> ${oneTeetMissing2} € </b>`;
           addedFullArch = oneTeetMissing1 + oneTeetMissing2;
           if (selectedValues.systemLevel == "optimal") {
             systemselection = 120;
@@ -449,7 +449,7 @@ function showNextSlide() {
         case 2:
           document.getElementById(
             "firstSlide"
-          ).innerHTML = `2 Dantų implantas: <b> ${twoTeetMissing1} € </b><br/> Cirkonio keramikos vainikėlis: <b>${twoTeetMissing2} € </b>`;
+          ).innerHTML = `2 dantų implantas: <b> ${twoTeetMissing1} € </b><br/>2 cirkonio keramikos vainikėlis: <b>${twoTeetMissing2} € </b>`;
           addedFullArch = twoTeetMissing1 + twoTeetMissing2;
           if (selectedValues.systemLevel == "optimal") {
             systemselection = 2 * 120;
@@ -463,7 +463,7 @@ function showNextSlide() {
           console.log("inside", selectedValues.missingTeeth);
           document.getElementById(
             "firstSlide"
-          ).innerHTML = `2 Dantų implantas: <b> ${threeTeetMissing1} € </b><br/> Cirkonio keramikos vainikėlis: <b>${threeTeetMissing2} € </b>`;
+          ).innerHTML = `2 dantų implantas: <b> ${threeTeetMissing1} € </b><br/>3 cirkonio keramikos vainikėlis: <b>${threeTeetMissing2} € </b>`;
           addedFullArch = threeTeetMissing1 + threeTeetMissing2;
           if (selectedValues.systemLevel == "optimal") {
             systemselection = 2 * 120;
@@ -476,7 +476,7 @@ function showNextSlide() {
         case 4:
           document.getElementById(
             "firstSlide"
-          ).innerHTML = `2 Dantų implantas:<b> ${fourTeetMissing1} € </b><br/> Cirkonio keramikos vainikėlis: <b>${fourTeetMissing2} € </b>`;
+          ).innerHTML = `2 dantų implantas:<b> ${fourTeetMissing1} € </b><br/>4 cirkonio keramikos vainikėlis: <b>${fourTeetMissing2} € </b>`;
           addedFullArch = fourTeetMissing1 + fourTeetMissing2;
           if (selectedValues.systemLevel == "optimal") {
             systemselection = 2 * 120;
@@ -491,7 +491,7 @@ function showNextSlide() {
 
           document.getElementById(
             "firstSlide"
-          ).innerHTML = `3 Dantų implantas:<b> ${fiveTeetMissing1} €</b><br/> Cirkonio keramikos vainikėlis:<b> ${fiveTeetMissing2} € </b>`;
+          ).innerHTML = `3 dantų implantas:<b> ${fiveTeetMissing1} €</b><br/>5 cirkonio keramikos vainikėlis:<b> ${fiveTeetMissing2} € </b>`;
 
           addedFullArch = fiveTeetMissing1 + fiveTeetMissing2;
           if (selectedValues.systemLevel == "optimal") {
