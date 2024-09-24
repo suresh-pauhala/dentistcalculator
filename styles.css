@@ -77,7 +77,7 @@ button {
 }
 
 .note {
-  color: #34c99d;
+  color: orange;
   font-size: 12px;
 }
 
@@ -567,7 +567,7 @@ button.disabled {
     font-size: 18px;
   }
   .note {
-    color: #34c99d;
+    color: orange;
     font-size: 8.8px;
   }
 }

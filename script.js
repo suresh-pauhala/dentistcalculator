@@ -428,7 +428,7 @@ function showNextSlide() {
         selectedValues.missingTeeth
       );
       document.getElementById("secondSlide").innerHTML =
-        "Sudėtingumas: <b> " + complexity + " € </b>";
+        "Estetinė zona: <b> " + complexity + " € </b>";
       document.getElementById("teethExtraction").innerHTML =
         "Papildomas dantų šalinimas: <b> " + teethExtractionPrice + " € </b>";
 
